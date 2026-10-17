@@ -46,5 +46,5 @@ export function getNews() {
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
-// Prefix internal links with the base path (e.g. /snowai on github.io; empty on a custom domain).
+// Prefix internal links with the base path (e.g. /SNOWAI on github.io; empty on a custom domain).
 export const url = (path) => `${import.meta.env.BASE_URL.replace(/\/$/, '')}${path}`;
