@@ -80,11 +80,14 @@ function parseTeam(team) {
   const info = merge(team[0]);
   const extra = merge(team.slice(1));
   const manager = info.managers?.[0]?.manager ?? {};
+  const num = (v) => (v != null ? Number(v) : null);
   return {
     id: `t${info.team_id}`,
+    key: info.team_key,
     name: info.name,
     owner: manager.nickname && manager.nickname !== '--hidden--' ? manager.nickname : info.name,
-    points: extra.team_points?.total != null ? Number(extra.team_points.total) : null,
+    points: num(extra.team_points?.total),
+    projected: num(extra.team_projected_points?.total),
   };
 }
 
@@ -106,19 +109,48 @@ const teams = list(leagueRes.league[1].teams).map((t) => parseTeam(t.team));
 
 // Every regular-season and playoff week on the schedule
 const matchups = [];
+const finalWeeks = new Set();
 for (let week = Number(meta.start_week); week <= Number(meta.end_week); week++) {
   const sb = await api(`/league/${leagueKey}/scoreboard;week=${week}`);
   for (const { matchup } of list(sb.league[1].scoreboard['0'].matchups)) {
     if (matchup.is_playoffs === '1' || matchup.is_consolation === '1') continue;
     const [home, away] = list(matchup['0'].teams).map((t) => parseTeam(t.team));
     const final = matchup.status === 'postevent';
+    if (final) finalWeeks.add(week);
     matchups.push({
       week,
       home: home.id,
       away: away.id,
+      ...(home.projected != null && { homeProjected: home.projected, awayProjected: away.projected }),
       ...(final && { homeScore: home.points, awayScore: away.points }),
     });
   }
+}
+
+// Bench data for finished weeks (fetched once per week, then kept): bench points + best benched player.
+// Optional extra: if Yahoo rejects it, the rest of the sync still lands.
+const lineups = JSON.parse(await readFile('src/data/lineups.json', 'utf8').catch(() => '{}'));
+try {
+  for (const week of finalWeeks) {
+    if (lineups[week]) continue;
+    const byTeam = {};
+    for (const team of teams) {
+      const res = await api(`/team/${team.key}/roster;week=${week}/players/stats;type=week;week=${week}`);
+      const players = list(res.team?.[1]?.roster?.['0']?.players).map(({ player }) => {
+        const p = merge(player);
+        return { name: p.name?.full, pos: p.display_position, slot: merge(p.selected_position).position, points: Number(p.player_points?.total ?? 0) };
+      });
+      if (!players.length) throw new Error(`no roster returned for ${team.key} week ${week}`);
+      const bench = players.filter((p) => p.slot === 'BN');
+      byTeam[team.id] = {
+        benchPoints: Math.round(bench.reduce((sum, p) => sum + p.points, 0) * 100) / 100,
+        topBench: bench.sort((a, b) => b.points - a.points)[0] ?? null,
+      };
+    }
+    lineups[week] = byTeam;
+  }
+} catch (err) {
+  console.log(`Skipping bench data: ${err.message.split('\n')[0]}`);
 }
 
 async function writeJson(file, data) {
@@ -133,4 +165,5 @@ async function writeJson(file, data) {
 await writeJson('src/data/league.json', { ...league, season: Number(meta.season), platform: 'Yahoo' });
 await writeJson('src/data/teams.json', teams.map(({ id, name, owner }) => ({ id, name, owner })));
 await writeJson('src/data/matchups.json', matchups);
+await writeJson('src/data/lineups.json', lineups);
 console.log(`Synced ${teams.length} teams and ${matchups.length} matchups from Yahoo league ${YAHOO_LEAGUE_ID}.`);

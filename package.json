@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "chat": "node scripts/chat-candidates.mjs"
   },
   "dependencies": {
     "astro": "^7.4.0"

@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+import shame from '../data/shame.json';
+import { getChampions } from '../lib/history.js';
+import { getBenchedBlowups } from '../lib/awards.js';
+
+const punishmentFor = Object.fromEntries(shame.punishments.map((p) => [p.season, p]));
+const lastPlace = getChampions().map((c) => ({ season: c.season, ...c.lastPlace, punishment: punishmentFor[c.season]?.punishment }));
+const benched = [
+  ...shame.benched.map((b) => ({ ...b, manual: true })),
+  ...getBenchedBlowups().map((b) => ({ ...b, story: `${b.team}, week ${b.week}` })),
+];
+const empty = (file) => `Nothing yet. Add entries to src/data/shame.json → "${file}".`;
+---
+<Base title="Hall of Shame">
+  <h1>🚽 Hall of Shame</h1>
+  <p class="muted">Immortalizing the league's worst moments, forever.</p>
+
+  <h2>Last-place finishes &amp; punishments</h2>
+  <div class="table-wrap card" style="padding:0">
+    <table>
+      <thead><tr><th>Season</th><th>Last place</th><th>Punishment</th></tr></thead>
+      <tbody>
+        {lastPlace.map((l) => (
+          <tr>
+            <td>{l.season}</td>
+            <td><strong>{l.owner}</strong><br /><span class="muted small">{l.team} · {l.wins}-{l.losses}</span></td>
+            <td class="wrap">{l.punishment ?? <span class="muted">Unknown. Add it to "punishments".</span>}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Worst lineup decisions</h2>
+  {shame.lineups.length === 0 && <p class="muted">{empty('lineups')}</p>}
+  {shame.lineups.map((e) => (
+    <article class="card">
+      <p class="kicker">{e.season}{e.week && ` · Week ${e.week}`}</p>
+      <h3>{e.owner}: {e.title}</h3>
+      {e.story && <p>{e.story}</p>}
+    </article>
+  ))}
+
+  <h2>Lopsided trades</h2>
+  {shame.trades.length === 0 && <p class="muted">{empty('trades')}</p>}
+  {shame.trades.map((t) => (
+    <article class="card">
+      <p class="kicker">{t.season}</p>
+      <h3>{t.loser} fleeced by {t.winner}</h3>
+      <p><strong>{t.loser} gave:</strong> {t.gave}<br /><strong>{t.loser} got:</strong> {t.got}</p>
+      {t.story && <p class="muted">{t.story}</p>}
+    </article>
+  ))}
+
+  <h2>Benched and went off</h2>
+  {benched.length === 0 && <p class="muted">{empty('benched')} Once Yahoo is connected, these fill in automatically.</p>}
+  {benched.length > 0 && (
+    <div class="table-wrap card" style="padding:0">
+      <table>
+        <thead><tr><th>Owner</th><th>Player</th><th class="num">Pts on bench</th><th>When</th></tr></thead>
+        <tbody>
+          {benched.map((b) => (
+            <tr>
+              <td><strong>{b.owner}</strong></td>
+              <td>{b.name ?? b.player}{b.pos && <span class="muted"> {b.pos}</span>}</td>
+              <td class="num">{Number(b.points).toFixed(1)}</td>
+              <td class="muted wrap">{b.manual ? `${b.season}${b.week ? `, week ${b.week}` : ''}${b.story ? `. ${b.story}` : ''}` : b.story}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+</Base>
+
+<style>
+  h2 { margin-top: 2rem; }
+  h3 { margin: 0.1rem 0 0.4rem; }
+  article p { margin: 0.25rem 0; }
+  .kicker { color: #c0392b; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+  .small { font-size: 0.8rem; }
+  .wrap { white-space: normal; min-width: 12rem; }
+</style>

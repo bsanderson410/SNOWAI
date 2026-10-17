@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import { getQuotes } from '../lib/quotes.js';
+const [current, ...archive] = getQuotes();
+const fmt = (d) => new Date(d).toLocaleDateString('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric' });
+---
+<Base title="Quotes">
+  <h1>💬 Quote of the Week</h1>
+  {current && (
+    <blockquote class="card quote big">
+      <p>“{current.text}”</p>
+      <footer>— {current.by}<span class="muted">, {fmt(current.date)}</span></footer>
+      {current.context && <p class="muted small">{current.context}</p>}
+    </blockquote>
+  )}
+  {archive.length > 0 && <h2>Past quotes</h2>}
+  {archive.map((q) => (
+    <blockquote class="card quote">
+      <p>“{q.text}”</p>
+      <footer>— {q.by}<span class="muted">, {fmt(q.date)}</span></footer>
+      {q.context && <p class="muted small">{q.context}</p>}
+    </blockquote>
+  ))}
+</Base>
+
+<style>
+  .quote { margin: 0 0 1rem; }
+  .quote p { margin: 0 0 0.5rem; font-family: Georgia, 'Times New Roman', serif; font-size: 1.1rem; }
+  .quote.big p:first-child { font-size: 1.5rem; line-height: 1.3; }
+  .quote footer { font-weight: 600; }
+  .small { font-size: 0.85rem !important; font-family: inherit !important; }
+</style>

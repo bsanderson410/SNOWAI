@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import { getWeeklyAwards } from '../lib/awards.js';
+const weeks = getWeeklyAwards();
+---
+<Base title="Weekly Awards">
+  <h1>Weekly Awards</h1>
+  <p class="muted">Handed out automatically once every game in a week is final.</p>
+  {weeks.length === 0 && <p class="card muted">No completed weeks yet.</p>}
+  {weeks.map(({ week, awards }) => (
+    <section>
+      <h2>Week {week}</h2>
+      <div class="grid">
+        {awards.map((a) => (
+          <div class="card award">
+            <p class="award-title">{a.emoji} {a.title}</p>
+            <p class="award-team">{a.team}</p>
+            <p class="muted small">{a.owner} · {a.detail}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  ))}
+</Base>
+
+<style>
+  .award p { margin: 0; }
+  .award-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+  .award-team { font-size: 1.15rem; font-weight: 700; margin: 0.2rem 0 !important; }
+  .small { font-size: 0.85rem; }
+</style>
