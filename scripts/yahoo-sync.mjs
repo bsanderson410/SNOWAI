@@ -91,8 +91,28 @@ function parseTeam(team) {
   };
 }
 
+// When Yahoo refuses, log what each kind of request returns to narrow down why.
+async function diagnose() {
+  const probes = [
+    '/game/nfl?format=json',
+    '/game/nfl',
+    '/users;use_login=1?format=json',
+    '/users;use_login=1/games?format=json',
+    `/league/nfl.l.${YAHOO_LEAGUE_ID}?format=json`,
+  ];
+  for (const path of probes) {
+    const res = await fetch(`${API}${path}`, { headers: { Authorization: `Bearer ${token}` } });
+    const body = (await res.text()).replace(/\s+/g, ' ').slice(0, 160);
+    console.log(`  probe ${res.status} ${path} :: ${body}`);
+  }
+}
+
 // Find the full league key (e.g. "461.l.899128") among the logged-in user's NFL leagues.
-const userGames = await api('/users;use_login=1/games;game_codes=nfl/leagues');
+const userGames = await api('/users;use_login=1/games;game_codes=nfl/leagues').catch(async (err) => {
+  console.log('Yahoo refused; diagnostics:');
+  await diagnose();
+  throw err;
+});
 const myLeagues = list(userGames.users?.['0']?.user?.[1]?.games)
   .flatMap((g) => list(g.game?.[1]?.leagues))
   .map((l) => merge(l.league));
