@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getStandings } from '../lib/standings.js';
+import { getStandings, url } from '../lib/standings.js';
+import { ownerSlug } from '../lib/franchises.js';
 const rows = getStandings();
 ---
 <Base title="Standings">
@@ -15,7 +16,7 @@ const rows = getStandings();
           <tr>
             <td>{i + 1}</td>
             <td><strong>{r.name}</strong></td>
-            <td class="muted">{r.owner}</td>
+            <td><a href={url(`/franchises/${ownerSlug(r.owner)}`)}>{r.owner}</a></td>
             <td class="num">{r.wins}-{r.losses}-{r.ties}</td>
             <td class="num">{r.pointsFor.toFixed(1)}</td>
             <td class="num">{r.pointsAgainst == null ? '—' : r.pointsAgainst.toFixed(1)}</td>

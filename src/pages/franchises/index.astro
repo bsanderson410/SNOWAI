@@ -1,0 +1,42 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getFranchises } from '../../lib/franchises.js';
+import { url } from '../../lib/standings.js';
+const franchises = getFranchises();
+---
+<Base title="Franchises">
+  <h1>Franchises</h1>
+  <p class="muted">Every owner's profile. Owners can edit their own page.</p>
+  <div class="grid">
+    {franchises.map((f) => (
+      <a class="card franchise" href={url(`/franchises/${f.slug}`)}>
+        <p class="owner">{f.owner}{f.nickname && <span class="muted"> “{f.nickname}”</span>}</p>
+        <p>{f.current?.name ?? 'No team this season'}</p>
+        <p class="muted small">
+          {f.current && `${f.current.wins}-${f.current.losses} this season · `}
+          {f.titles.length ? '🏆'.repeat(f.titles.length) : `${f.career?.seasons ?? 0} seasons, no titles`}
+        </p>
+      </a>
+    ))}
+  </div>
+
+  <section class="card" id="how-to-edit">
+    <h2>How to edit your profile</h2>
+    <ol>
+      <li>Make a free account at <a href="https://github.com/signup">github.com</a> and send your username to the commissioner. You only do this once.</li>
+      <li>Accept the invite email from GitHub.</li>
+      <li>Open your franchise page here and tap <strong>✏️ Edit this profile</strong>.</li>
+      <li>Fill in the text between the quote marks (nickname, motto, rival…) and write your bio under the dashes.</li>
+      <li>Tap <strong>Commit changes</strong>. Your page updates in about a minute.</li>
+    </ol>
+    <p class="muted small">Want a photo or logo? Paste an image link (ending in .jpg or .png) into <code>photo: ""</code>.</p>
+  </section>
+</Base>
+
+<style>
+  .franchise { display: block; text-decoration: none; color: inherit; }
+  .franchise:hover { border-color: var(--accent); }
+  .franchise p { margin: 0.15rem 0; }
+  .owner { font-weight: 700; font-size: 1.15rem; color: var(--accent); }
+  .small { font-size: 0.85rem; }
+</style>

@@ -1,0 +1,96 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getFranchises } from '../../lib/franchises.js';
+import { url } from '../../lib/standings.js';
+
+export function getStaticPaths() {
+  return getFranchises().map((f) => ({ params: { slug: f.slug }, props: { f } }));
+}
+const { f } = Astro.props;
+const { Content } = f;
+const facts = [
+  ['Hometown', f.hometown],
+  ['Favorite NFL team', f.favoriteNflTeam],
+  ['Motto', f.motto],
+  ['Sworn rival', f.rival],
+  ['Proudest moment', f.proudestMoment],
+  ['Biggest regret', f.biggestRegret],
+].filter(([, v]) => v);
+const c = f.career;
+---
+<Base title={f.owner}>
+  <a href={url('/franchises')}>← All franchises</a>
+  <div class="profile card">
+    {f.photo && <img src={f.photo} alt={`${f.owner}'s team logo`} />}
+    <div>
+      <h1>{f.owner}{f.nickname && <span class="muted"> “{f.nickname}”</span>}</h1>
+      <p>{f.current ? <><strong>{f.current.name}</strong> · {f.current.wins}-{f.current.losses} · #{f.rank} in the league</> : 'Not in the league this season'}</p>
+      {f.titles.length > 0 && <p>🏆 Champion: {f.titles.join(', ')}</p>}
+    </div>
+  </div>
+
+  <section class="card">
+    <h2>The Owner</h2>
+    {facts.length > 0 && (
+      <dl>
+        {facts.map(([k, v]) => <><dt>{k}</dt><dd>{v}</dd></>)}
+      </dl>
+    )}
+    {f.hasBio ? <Content /> : <p class="muted">{f.owner} hasn't written a bio yet. Probably too busy setting a bad lineup.</p>}
+    <p><a class="edit" href={f.editUrl}>✏️ Edit this profile</a> <a class="muted small" href={url('/franchises#how-to-edit')}>How to edit</a></p>
+  </section>
+
+  {c && (
+    <section class="card">
+      <h2>Career</h2>
+      <div class="stats">
+        <div><strong>{c.seasons}</strong><span>Seasons</span></div>
+        <div><strong>{c.titles}</strong><span>Titles</span></div>
+        <div><strong>{c.playoffs}</strong><span>Playoffs</span></div>
+        <div><strong>{c.wins}-{c.losses}</strong><span>Record</span></div>
+        <div><strong>{(c.winPct).toFixed(3).replace(/^0/, '')}</strong><span>Win %</span></div>
+        <div><strong>{c.avgPoints.toFixed(0)}</strong><span>Avg PF</span></div>
+        <div><strong>{c.lastPlace}</strong><span>Last places</span></div>
+      </div>
+    </section>
+  )}
+
+  {f.history.length > 0 && (
+    <section class="card">
+      <h2>Season by season</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Season</th><th>Team</th><th class="num">Finish</th><th class="num">W-L</th><th class="num">PF</th></tr></thead>
+          <tbody>
+            {f.history.map((h) => (
+              <tr>
+                <td>{h.season}</td>
+                <td>{h.team}</td>
+                <td class="num">{h.rank === 1 ? '🏆' : h.rank}{h.playoffs ? '*' : ''}</td>
+                <td class="num">{h.wins}-{h.losses}</td>
+                <td class="num">{h.pointsFor.toFixed(1)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="muted small">* made playoffs</p>
+    </section>
+  )}
+</Base>
+
+<style>
+  .profile { display: flex; gap: 1rem; align-items: center; margin-top: 0.75rem; }
+  .profile img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .profile h1 { margin: 0 0 0.25rem; }
+  .profile p { margin: 0.15rem 0; }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1rem; margin: 0 0 1rem; }
+  dt { color: var(--muted); }
+  dd { margin: 0; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 0.75rem; }
+  .stats div { display: flex; flex-direction: column; }
+  .stats strong { font-size: 1.3rem; }
+  .stats span { color: var(--muted); font-size: 0.8rem; }
+  .small { font-size: 0.85rem; }
+  .edit { font-weight: 600; }
+</style>
