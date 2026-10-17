@@ -3,7 +3,7 @@
 # Only edit the text after the colons. Keep the quote marks.
 owner: "Ben"
 role: "Commissioner"
-nickname: ""
+nickname: "Slaughter"
 hometown: "Washington, DC"
 favoriteNflTeam: "Browns"
 motto: "Tough AF"
