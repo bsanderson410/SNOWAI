@@ -7,6 +7,10 @@ on:
     # Daily at 11:00 UTC (~6-7am ET): picks up final scores, including after MNF.
     - cron: '0 11 * * *'
   workflow_dispatch:
+    inputs:
+      yahoo_code:
+        description: One-time Yahoo login code (only needed to connect Yahoo)
+        required: false
 
 permissions:
   contents: write
@@ -30,21 +34,21 @@ jobs:
           cache: npm
       - run: npm ci
 
-      # Skipped automatically until the Yahoo secrets are added (see docs/YAHOO.md).
+      # Skipped automatically until Yahoo is connected (see docs/YAHOO.md).
       - name: Sync from Yahoo
         run: node scripts/yahoo-sync.mjs
         env:
-          YAHOO_CLIENT_ID: ${{ secrets.YAHOO_CLIENT_ID }}
           YAHOO_CLIENT_SECRET: ${{ secrets.YAHOO_CLIENT_SECRET }}
-          YAHOO_REFRESH_TOKEN: ${{ secrets.YAHOO_REFRESH_TOKEN }}
-          YAHOO_LEAGUE_ID: ${{ secrets.YAHOO_LEAGUE_ID }}
+          YAHOO_AUTH_CODE: ${{ inputs.yahoo_code }}
       - name: Save synced data
         run: |
-          if [ -n "$(git status --porcelain src/data)" ]; then
+          if [ -n "$(git status --porcelain src/data .yahoo)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add src/data
+            if [ -d .yahoo ]; then git add .yahoo; fi
             git commit -m "Sync league data from Yahoo"
+            git pull --rebase origin main
             git push
           fi
 

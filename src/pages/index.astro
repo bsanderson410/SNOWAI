@@ -2,12 +2,22 @@
 import Base from '../layouts/Base.astro';
 import league from '../data/league.json';
 import { getStandings, getNews, url } from '../lib/standings.js';
+import { getHeadlines } from '../lib/headlines.js';
 const top = getStandings().slice(0, 3);
 const latest = getNews().slice(0, 3);
+const stories = getHeadlines().slice(0, 3);
 ---
 <Base>
   <h1>{league.name}</h1>
   <p class="muted">{league.tagline}</p>
+
+  <section class="card">
+    <h2>📰 Headlines</h2>
+    <ul>
+      {stories.map((h) => <li><strong>{h.headline}</strong></li>)}
+    </ul>
+    <a href={url('/headlines')}>All headlines →</a>
+  </section>
 
   <section class="card">
     <h2>Top of the table</h2>

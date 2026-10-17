@@ -4,5 +4,9 @@
   "season": 2026,
   "commissioner": "Commissioner Name",
   "platform": "ESPN / Sleeper / Yahoo (edit me)",
-  "tagline": "Glory, trash talk, and a trophy nobody deserves."
+  "tagline": "Glory, trash talk, and a trophy nobody deserves.",
+  "yahoo": {
+    "leagueId": "899128",
+    "clientId": "dj0yJmk9NTN0blN4bjF0TlZsJmQ9WVdrOVdGWnBVbUpJWjBNbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTkw"
+  }
 }

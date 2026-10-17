@@ -1,10 +1,39 @@
 // Pulls teams, schedule and final scores from Yahoo Fantasy and writes src/data/*.json.
 // Runs in the deploy workflow when the YAHOO_* secrets are set. See docs/YAHOO.md.
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { createCipheriv, createDecipheriv, createHash, randomBytes } from 'node:crypto';
 
-const { YAHOO_CLIENT_ID, YAHOO_CLIENT_SECRET, YAHOO_REFRESH_TOKEN, YAHOO_LEAGUE_ID } = process.env;
-if (!YAHOO_CLIENT_ID || !YAHOO_CLIENT_SECRET || !YAHOO_REFRESH_TOKEN || !YAHOO_LEAGUE_ID) {
-  console.log('Yahoo secrets not set; skipping sync.');
+const league = JSON.parse(await readFile('src/data/league.json', 'utf8'));
+const YAHOO_CLIENT_ID = league.yahoo?.clientId;
+const YAHOO_LEAGUE_ID = league.yahoo?.leagueId;
+const { YAHOO_CLIENT_SECRET, YAHOO_AUTH_CODE } = process.env;
+if (!YAHOO_CLIENT_ID || !YAHOO_LEAGUE_ID || !YAHOO_CLIENT_SECRET) {
+  console.log('Yahoo not configured (needs league.json "yahoo" + YAHOO_CLIENT_SECRET secret); skipping sync.');
+  process.exit(0);
+}
+
+// The refresh token is stored in the repo, encrypted with the client secret.
+// It is useless without the client secret anyway, which only lives in GitHub secrets.
+const TOKEN_FILE = '.yahoo/token.enc';
+const key = createHash('sha256').update(YAHOO_CLIENT_SECRET).digest();
+
+function encrypt(text) {
+  const iv = randomBytes(12);
+  const cipher = createCipheriv('aes-256-gcm', key, iv);
+  const data = Buffer.concat([cipher.update(text, 'utf8'), cipher.final()]);
+  return Buffer.concat([iv, cipher.getAuthTag(), data]).toString('base64');
+}
+
+function decrypt(b64) {
+  const buf = Buffer.from(b64.trim(), 'base64');
+  const decipher = createDecipheriv('aes-256-gcm', key, buf.subarray(0, 12));
+  decipher.setAuthTag(buf.subarray(12, 28));
+  return Buffer.concat([decipher.update(buf.subarray(28)), decipher.final()]).toString('utf8');
+}
+
+const savedToken = await readFile(TOKEN_FILE, 'utf8').then(decrypt).catch(() => null);
+if (!YAHOO_AUTH_CODE && !savedToken) {
+  console.log('No Yahoo login yet (run the workflow with a yahoo_code); skipping sync.');
   process.exit(0);
 }
 
@@ -12,16 +41,24 @@ const API = 'https://fantasysports.yahooapis.com/fantasy/v2';
 const leagueKey = `nfl.l.${YAHOO_LEAGUE_ID}`;
 
 async function getAccessToken() {
+  const grant = YAHOO_AUTH_CODE
+    ? { grant_type: 'authorization_code', code: YAHOO_AUTH_CODE.trim() }
+    : { grant_type: 'refresh_token', refresh_token: savedToken };
   const res = await fetch('https://api.login.yahoo.com/oauth2/get_token', {
     method: 'POST',
     headers: {
       Authorization: 'Basic ' + Buffer.from(`${YAHOO_CLIENT_ID}:${YAHOO_CLIENT_SECRET}`).toString('base64'),
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: new URLSearchParams({ grant_type: 'refresh_token', refresh_token: YAHOO_REFRESH_TOKEN, redirect_uri: 'https://localhost:8080' }),
+    body: new URLSearchParams({ ...grant, redirect_uri: 'https://localhost:8080' }),
   });
   const data = await res.json();
-  if (!res.ok) throw new Error(`Yahoo token refresh failed: ${JSON.stringify(data)}`);
+  if (!res.ok) throw new Error(`Yahoo token request failed: ${JSON.stringify(data)}`);
+  if (data.refresh_token && data.refresh_token !== savedToken) {
+    await mkdir('.yahoo', { recursive: true });
+    await writeFile(TOKEN_FILE, encrypt(data.refresh_token) + '\n');
+    console.log('Saved Yahoo login.');
+  }
   return data.access_token;
 }
 
@@ -81,7 +118,6 @@ async function writeJson(file, data) {
   }
 }
 
-const league = JSON.parse(await readFile('src/data/league.json', 'utf8'));
 await writeJson('src/data/league.json', { ...league, season: Number(meta.season), platform: 'Yahoo' });
 await writeJson('src/data/teams.json', teams.map(({ id, name, owner }) => ({ id, name, owner })));
 await writeJson('src/data/matchups.json', matchups);
