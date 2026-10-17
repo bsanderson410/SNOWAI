@@ -20,7 +20,7 @@ const houseFacts = [
 ].filter(Boolean);
 const housing = draft.housing;
 const placed = new Set(housing.tiers.flatMap((t) => t.assigned));
-const unassigned = draft.attendees.filter((a) => a.status !== 'out' && !placed.has(a.owner)).map((a) => a.owner);
+const unassigned = draft.attendees.filter((a) => a.status === 'going' && !placed.has(a.owner)).map((a) => a.owner);
 ---
 <Base title="Draft Weekend">
   <section class="hero card">
@@ -32,7 +32,7 @@ const unassigned = draft.attendees.filter((a) => a.status !== 'out' && !placed.h
     </p>
     {draft.draftDateTime && (
       <p class="countdown" data-target={draft.draftDateTime}>
-        Draft starts {fmtDate(draft.draftDateTime, { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' })} ET
+        Draft {draft.draftTimeNote ? '(likely)' : 'starts'} {fmtDate(draft.draftDateTime, { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' })} ET
       </p>
     )}
   </section>
@@ -54,8 +54,9 @@ const unassigned = draft.attendees.filter((a) => a.status !== 'out' && !placed.h
         <div class={`tier ${t.key}`}>
           <p class="tier-name">{t.emoji} {t.name}</p>
           <p class="small">{t.blurb}</p>
-          {t.assigned.length
-            ? <ul>{t.assigned.map((o) => <li><a href={url(`/franchises/${ownerSlug(o)}`)}>{o}</a></li>)}</ul>
+          {t.president && <p class="president">🎖️ {t.presidentTitle ?? 'President'}: <a href={url(`/franchises/${ownerSlug(t.president)}`)}><strong>{t.president}</strong></a></p>}
+          {t.assigned.filter((o) => o !== t.president).length
+            ? <ul>{t.assigned.filter((o) => o !== t.president).map((o) => <li><a href={url(`/franchises/${ownerSlug(o)}`)}>{o}</a></li>)}</ul>
             : <p class="muted small">Residents TBD</p>}
         </div>
       ))}
@@ -156,6 +157,7 @@ const unassigned = draft.attendees.filter((a) => a.status !== 'out' && !placed.h
   .tier p { margin: 0.2rem 0; }
   .tier ul { margin: 0.4rem 0 0; padding-left: 1.1rem; }
   .tier-name { font-weight: 800; font-size: 1.1rem; }
+  .president { font-size: 0.9rem; }
   .tier.apartments { border-color: #d4a017; background: color-mix(in srgb, #d4a017 10%, transparent); }
   .tier.barracks { border-color: #5a7d4a; background: color-mix(in srgb, #5a7d4a 10%, transparent); }
   .tier.warrens { border-color: #8b5a2b; background: color-mix(in srgb, #8b5a2b 12%, transparent); }

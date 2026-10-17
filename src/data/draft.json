@@ -1,7 +1,7 @@
 {
   "title": "Draft Weekend 2027 · Labor Day",
   "tagline": "Big Sky Lodge. 18 owners. Not enough good beds.",
-  "draftDateTime": "",
+  "draftDateTime": "2027-09-04T19:00:00-04:00",
   "arrive": "2027-09-02T16:00:00-04:00",
   "depart": "2027-09-06T11:00:00-04:00",
   "location": "New Lexington, Ohio",
@@ -129,7 +129,7 @@
     },
     {
       "day": "Sat, Sep 4",
-      "time": "TBD",
+      "time": "7:00 PM (likely)",
       "item": "THE DRAFT"
     },
     {
@@ -172,8 +172,13 @@
         "name": "The Warrens",
         "emoji": "🐀",
         "blurb": "Notorious. Scrappy conditions. Couches, floors, and whatever's left. Survival not guaranteed.",
-        "assigned": []
+        "assigned": [
+          "Michael"
+        ],
+        "president": "Michael",
+        "presidentTitle": "President of the Warrens"
       }
     ]
-  }
+  },
+  "draftTimeNote": "Likely, not final"
 }
