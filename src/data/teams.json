@@ -2,217 +2,91 @@
   {
     "id": "sabans-funklins",
     "name": "Saban's Funklins",
-    "owner": "Ben",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 5,
-      "losses": 0,
-      "ties": 0,
-      "pointsFor": 665.23
-    }
+    "owner": "Ben"
   },
   {
     "id": "sailor-goon",
     "name": "Sailor Goon",
-    "owner": "Tate",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 4,
-      "losses": 1,
-      "ties": 0,
-      "pointsFor": 695.2
-    }
+    "owner": "Tate"
   },
   {
     "id": "speed-flex-offenders",
     "name": "Speed Flex Offenders",
-    "owner": "Henry R",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 4,
-      "losses": 1,
-      "ties": 0,
-      "pointsFor": 657.2
-    }
+    "owner": "Henry R"
   },
   {
     "id": "tripp-football-team",
     "name": "Tripp Football Team",
-    "owner": "Tripp",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 4,
-      "losses": 1,
-      "ties": 0,
-      "pointsFor": 626.49
-    }
+    "owner": "Tripp"
   },
   {
     "id": "ohio-against-the-world",
     "name": "Ohio Against the World",
-    "owner": "Brady",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 3,
-      "losses": 2,
-      "ties": 0,
-      "pointsFor": 689.25
-    }
+    "owner": "Brady"
   },
   {
     "id": "4-yards-a-play",
     "name": "4 yards a play",
-    "owner": "Luke",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 3,
-      "losses": 2,
-      "ties": 0,
-      "pointsFor": 679.41
-    }
+    "owner": "Luke"
   },
   {
     "id": "the-zogma-d-leagues",
     "name": "The zogma D leagues",
-    "owner": "Anthony",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 3,
-      "losses": 2,
-      "ties": 0,
-      "pointsFor": 568.27
-    }
+    "owner": "Anthony"
   },
   {
     "id": "fungiville-fungi",
     "name": "Fungiville Fungi",
-    "owner": "Michael",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 3,
-      "losses": 2,
-      "ties": 0,
-      "pointsFor": 560.33
-    }
+    "owner": "Michael"
   },
   {
     "id": "tferrara",
     "name": "Tferrara",
-    "owner": "Tommy F",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 3,
-      "losses": 2,
-      "ties": 0,
-      "pointsFor": 557.67
-    }
+    "owner": "Tommy F"
   },
   {
     "id": "trade-federation",
     "name": "Trade Federation",
-    "owner": "Sam",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 2,
-      "losses": 3,
-      "ties": 0,
-      "pointsFor": 607.7
-    }
+    "owner": "Sam"
   },
   {
     "id": "jonestown-womens-hospital",
     "name": "Jonestown Women’s Hospital",
-    "owner": "Daniel",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 2,
-      "losses": 3,
-      "ties": 0,
-      "pointsFor": 600.22
-    }
+    "owner": "Daniel"
   },
   {
     "id": "jupiters-little-devil",
     "name": "Jupiter’s Little Devil",
-    "owner": "Tommy C",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 2,
-      "losses": 3,
-      "ties": 0,
-      "pointsFor": 585.4
-    }
+    "owner": "Tommy C"
   },
   {
     "id": "peak-season",
     "name": "Peak Season",
-    "owner": "Zak",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 2,
-      "losses": 3,
-      "ties": 0,
-      "pointsFor": 568.62
-    }
+    "owner": "Zak"
   },
   {
     "id": "grunkville-goblins",
     "name": "Grunkville Goblins",
-    "owner": "Henry B",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 2,
-      "losses": 3,
-      "ties": 0,
-      "pointsFor": 531.68
-    }
+    "owner": "Henry B"
   },
   {
     "id": "martins-deli",
     "name": "Martin’s Deli",
-    "owner": "Trevor",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 1,
-      "losses": 4,
-      "ties": 0,
-      "pointsFor": 583.59
-    }
+    "owner": "Trevor"
   },
   {
     "id": "coyotes-cocky-team",
     "name": "Coyote’s Cocky Team",
-    "owner": "Josh",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 1,
-      "losses": 4,
-      "ties": 0,
-      "pointsFor": 530.66
-    }
+    "owner": "Josh"
   },
   {
     "id": "the-burly-lords",
     "name": "The Burly Lords",
-    "owner": "Will",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 1,
-      "losses": 4,
-      "ties": 0,
-      "pointsFor": 517.85
-    }
+    "owner": "Will"
   },
   {
     "id": "crogenheim-crusaders",
     "name": "Crogenheim Crusaders",
-    "owner": "Ethan",
-    "baseline": {
-      "throughWeek": 5,
-      "wins": 0,
-      "losses": 5,
-      "ties": 0,
-      "pointsFor": 465.8
-    }
+    "owner": "Ethan"
   }
 ]
