@@ -3,10 +3,13 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    # Daily at 11:00 UTC (~6-7am ET): picks up final scores, including after MNF.
+    - cron: '0 11 * * *'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -19,13 +22,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - id: pages
+        uses: actions/configure-pages@v5
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - id: pages
-        uses: actions/configure-pages@v5
       - run: npm ci
+
+      # Skipped automatically until the Yahoo secrets are added (see docs/YAHOO.md).
+      - name: Sync from Yahoo
+        run: node scripts/yahoo-sync.mjs
+        env:
+          YAHOO_CLIENT_ID: ${{ secrets.YAHOO_CLIENT_ID }}
+          YAHOO_CLIENT_SECRET: ${{ secrets.YAHOO_CLIENT_SECRET }}
+          YAHOO_REFRESH_TOKEN: ${{ secrets.YAHOO_REFRESH_TOKEN }}
+          YAHOO_LEAGUE_ID: ${{ secrets.YAHOO_LEAGUE_ID }}
+      - name: Save synced data
+        run: |
+          if [ -n "$(git status --porcelain src/data)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/data
+            git commit -m "Sync league data from Yahoo"
+            git push
+          fi
+
       - run: npm run build
         env:
           SITE_URL: ${{ steps.pages.outputs.origin }}

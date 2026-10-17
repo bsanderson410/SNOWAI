@@ -22,7 +22,10 @@ src/
   lib/standings.js  ← standings / schedule / news helpers
 ```
 
-## Weekly workflow (no coding required)
+## Weekly workflow
+
+With Yahoo auto-import set up ([`docs/YAHOO.md`](docs/YAHOO.md)), there is nothing to do: data syncs every morning.
+Without it:
 
 1. On github.com, open `src/data/matchups.json` → pencil icon → add `homeScore` / `awayScore` for the week.
 2. Commit. ~1 minute later the site is live with new standings.
