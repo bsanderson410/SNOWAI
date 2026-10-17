@@ -1,5 +1,10 @@
 import headlines from '../data/headlines.json';
 import { getWeeks, getStandings, teamById, isPlayed } from './standings.js';
+import { getFranchises } from './franchises.js';
+
+// Headlines call owners by their league nickname when they have one.
+const nicknames = Object.fromEntries(getFranchises().filter((f) => f.nickname).map((f) => [f.owner, f.nickname]));
+const nick = (owner) => nicknames[owner] ?? owner;
 
 // Made-up tabloid stories generated from each week's real results.
 // Hand-written ones live in src/data/headlines.json.
@@ -45,8 +50,8 @@ function gameVars(m) {
   const homeWon = m.homeScore >= m.awayScore;
   const [wId, lId, ws, ls] = homeWon ? [m.home, m.away, m.homeScore, m.awayScore] : [m.away, m.home, m.awayScore, m.homeScore];
   return {
-    w: teamById[wId]?.name ?? wId, wo: teamById[wId]?.owner ?? wId,
-    l: teamById[lId]?.name ?? lId, lo: teamById[lId]?.owner ?? lId,
+    w: teamById[wId]?.name ?? wId, wo: nick(teamById[wId]?.owner ?? wId),
+    l: teamById[lId]?.name ?? lId, lo: nick(teamById[lId]?.owner ?? lId),
     ws: ws.toFixed(1), ls: ls.toFixed(1), m: (ws - ls).toFixed(1), margin: ws - ls,
   };
 }
@@ -73,7 +78,7 @@ export function getHeadlines() {
     const top = getStandings()[0];
     auto.push({
       week: playedWeeks.at(-1).week,
-      ...fill(pick(TEMPLATES.leader, `leader${playedWeeks.length}${top.name}`), { w: top.name, wo: top.owner }),
+      ...fill(pick(TEMPLATES.leader, `leader${playedWeeks.length}${top.name}`), { w: top.name, wo: nick(top.owner) }),
     });
   }
 
