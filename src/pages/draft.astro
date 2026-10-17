@@ -1,0 +1,134 @@
+---
+import Base from '../layouts/Base.astro';
+import draft from '../data/draft.json';
+import { url } from '../lib/standings.js';
+import { ownerSlug } from '../lib/franchises.js';
+
+const TBD = 'TBD';
+const fmtDate = (s, opts) => (s ? new Date(s).toLocaleString('en-US', { timeZone: 'America/New_York', ...opts }) : TBD);
+const going = draft.attendees.filter((a) => a.status === 'going');
+const counts = ['going', 'maybe', 'out', 'unknown'].map((s) => [s, draft.attendees.filter((a) => a.status === s).length]);
+const headcount = going.length || draft.attendees.length;
+const perPerson = draft.cost.total ? Math.ceil((draft.cost.total / headcount) * 100) / 100 : null;
+const statusLabel = { going: '✅ Going', maybe: '🤔 Maybe', out: '❌ Out', unknown: '❔ No reply' };
+const h = draft.house;
+const houseFacts = [
+  h.guests && `${h.guests} guests`,
+  h.bedrooms && `${h.bedrooms} bedrooms`,
+  h.bathrooms && `${h.bathrooms} baths`,
+].filter(Boolean);
+---
+<Base title="Draft Weekend">
+  <section class="hero card">
+    <p class="kicker">🏈 {draft.title}</p>
+    <h1>{draft.tagline}</h1>
+    <p class="when">
+      {draft.arrive ? `${fmtDate(draft.arrive, { month: 'short', day: 'numeric' })} – ${fmtDate(draft.depart, { month: 'short', day: 'numeric', year: 'numeric' })}` : 'Dates TBD'}
+      {draft.location && ` · ${draft.location}`}
+    </p>
+    {draft.draftDateTime && (
+      <p class="countdown" data-target={draft.draftDateTime}>
+        Draft starts {fmtDate(draft.draftDateTime, { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' })} ET
+      </p>
+    )}
+  </section>
+
+  <section class="card">
+    <h2>🏠 The House</h2>
+    {houseFacts.length > 0 && <p><strong>{houseFacts.join(' · ')}</strong></p>}
+    {h.highlights.length > 0 && <ul>{h.highlights.map((x) => <li>{x}</li>)}</ul>}
+    <p>Check-in: {draft.checkIn || TBD} · Check-out: {draft.checkOut || TBD}</p>
+    <a class="button" href={draft.listingUrl}>View the house on Airbnb →</a>
+    <p class="muted small">Exact address and door codes go in the group chat, not on this public page.</p>
+  </section>
+
+  <section class="card">
+    <h2>💸 Cost</h2>
+    {draft.cost.total ? (
+      <>
+        <p class="big"><strong>${perPerson.toFixed(2)}</strong> per person</p>
+        <p class="muted">${draft.cost.total.toLocaleString()} total ÷ {headcount} {going.length ? 'confirmed' : 'owners (until RSVPs are in)'}</p>
+      </>
+    ) : <p class="muted">Total cost TBD.</p>}
+    {draft.cost.payTo && <p>Pay to: <strong>{draft.cost.payTo}</strong>{draft.cost.dueBy && ` by ${draft.cost.dueBy}`}</p>}
+  </section>
+
+  <section class="card">
+    <h2>📋 Who's coming</h2>
+    <p class="muted">{counts.filter(([, n]) => n).map(([s, n]) => `${statusLabel[s]}: ${n}`).join(' · ')}</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Owner</th><th>RSVP</th><th>Paid</th></tr></thead>
+        <tbody>
+          {draft.attendees.map((a) => (
+            <tr>
+              <td><a href={url(`/franchises/${ownerSlug(a.owner)}`)}>{a.owner}</a></td>
+              <td>{statusLabel[a.status] ?? a.status}</td>
+              <td>{a.paid ? '💰' : '–'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🗓️ Schedule</h2>
+    <div class="table-wrap">
+      <table>
+        <tbody>
+          {draft.schedule.map((s) => <tr><td><strong>{s.day}</strong></td><td class="muted">{s.time}</td><td class="wrap">{s.item}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  {draft.draftOrder.length > 0 && (
+    <section class="card">
+      <h2>🎯 Draft Order</h2>
+      <ol>{draft.draftOrder.map((o) => <li>{o}</li>)}</ol>
+    </section>
+  )}
+
+  <section class="card">
+    <h2>🎒 What to bring</h2>
+    <ul>{draft.bring.map((b) => <li>{b}</li>)}</ul>
+  </section>
+
+  {draft.notes.length > 0 && (
+    <section class="card">
+      <h2>📌 Notes</h2>
+      <ul>{draft.notes.map((n) => <li>{n}</li>)}</ul>
+    </section>
+  )}
+</Base>
+
+<script>
+  // Live countdown to the draft.
+  const el = document.querySelector('.countdown');
+  if (el) {
+    const target = new Date(el.dataset.target).getTime();
+    const base = el.textContent;
+    const tick = () => {
+      const ms = target - Date.now();
+      if (ms <= 0) return (el.textContent = '🚨 The draft is ON');
+      const d = Math.floor(ms / 864e5), hrs = Math.floor((ms % 864e5) / 36e5), m = Math.floor((ms % 36e5) / 6e4);
+      el.textContent = `${base} · ${d}d ${hrs}h ${m}m to go`;
+    };
+    tick();
+    setInterval(tick, 30000);
+  }
+</script>
+
+<style>
+  .hero { background: linear-gradient(135deg, var(--accent), #2a6fd6); color: #fff; border: none; }
+  .hero h1 { margin: 0.25rem 0; }
+  .hero .kicker { margin: 0; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.85rem; opacity: 0.9; }
+  .when, .countdown { margin: 0.25rem 0; }
+  .countdown { font-weight: 700; }
+  .button { display: inline-block; background: var(--accent); color: #fff; padding: 0.6rem 1rem; border-radius: 8px; text-decoration: none; font-weight: 600; }
+  .big { font-size: 1.5rem; margin: 0; }
+  .small { font-size: 0.85rem; }
+  .wrap { white-space: normal; }
+  @media (prefers-color-scheme: dark) { .hero { background: linear-gradient(135deg, #1b4fa8, #2a6fd6); } .button { color: #0f1520; } }
+</style>

@@ -1,0 +1,138 @@
+{
+  "title": "Draft Weekend",
+  "tagline": "The whole league under one roof. Draft, reunion, chaos.",
+  "draftDateTime": "",
+  "arrive": "",
+  "depart": "",
+  "location": "",
+  "listingUrl": "https://www.airbnb.com/rooms/1396536165490620688",
+  "house": {
+    "guests": null,
+    "bedrooms": null,
+    "bathrooms": null,
+    "highlights": []
+  },
+  "checkIn": "",
+  "checkOut": "",
+  "cost": {
+    "total": null,
+    "payTo": "",
+    "dueBy": ""
+  },
+  "attendees": [
+    {
+      "owner": "Ben",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Tate",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Henry R",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Tripp",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Brady",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Luke",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Anthony",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Michael",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Tommy F",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Sam",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Daniel",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Tommy C",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Zak",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Henry B",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Trevor",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Josh",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Will",
+      "status": "unknown",
+      "paid": false
+    },
+    {
+      "owner": "Ethan",
+      "status": "unknown",
+      "paid": false
+    }
+  ],
+  "schedule": [
+    {
+      "day": "Friday",
+      "time": "Evening",
+      "item": "Arrive, check in, settle rooms"
+    },
+    {
+      "day": "Saturday",
+      "time": "TBD",
+      "item": "THE DRAFT"
+    },
+    {
+      "day": "Sunday",
+      "time": "Morning",
+      "item": "Clean up, check out"
+    }
+  ],
+  "bring": [
+    "Your laptop or phone + charger",
+    "Draft cheat sheet",
+    "Last-place punishment, if it's you"
+  ],
+  "draftOrder": [],
+  "notes": []
+}
