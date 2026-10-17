@@ -1,0 +1,13 @@
+name: Inspect listing (temporary)
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -sL -A "Mozilla/5.0 (compatible; Twitterbot/1.0)" -o page.html -w "HTTP %{http_code}\n" "https://www.airbnb.com/rooms/1396536165490620688"
+          grep -oE '<meta[^>]+(og:|twitter:|name="description")[^>]*>' page.html | head -20
+          grep -oE '<title>[^<]*' page.html | head -1
+          grep -oE '"(personCapacity|bedrooms|beds|bathrooms|localizedCity|city)":[^,]{1,40}' page.html | sort -u | head -20
