@@ -1,16 +1,21 @@
 {
   "title": "Draft Weekend 2027 · Labor Day",
-  "tagline": "The whole league under one roof. Draft, reunion, chaos.",
+  "tagline": "Big Sky Lodge. 18 owners. Not enough good beds.",
   "draftDateTime": "",
-  "arrive": "2027-09-03T16:00:00-04:00",
+  "arrive": "2027-09-02T16:00:00-04:00",
   "depart": "2027-09-06T11:00:00-04:00",
-  "location": "",
+  "location": "New Lexington, Ohio",
   "listingUrl": "https://www.airbnb.com/rooms/1396536165490620688",
   "house": {
-    "guests": null,
-    "bedrooms": null,
-    "bathrooms": null,
-    "highlights": []
+    "name": "Big Sky Lodge",
+    "guests": "16+",
+    "bedrooms": 5,
+    "beds": 13,
+    "bathrooms": 4,
+    "highlights": [
+      "In the hills of rural Ohio",
+      "5.0★ Guest Favorite (39 reviews), top 10% of homes on Airbnb"
+    ]
   },
   "checkIn": "",
   "checkOut": "",
@@ -113,9 +118,14 @@
   ],
   "schedule": [
     {
+      "day": "Thu, Sep 2",
+      "time": "Afternoon",
+      "item": "Arrive, check in. Housing assignments announced"
+    },
+    {
       "day": "Fri, Sep 3",
-      "time": "Evening",
-      "item": "Arrive, check in, settle rooms"
+      "time": "All day",
+      "item": "Reunion day"
     },
     {
       "day": "Sat, Sep 4",
@@ -125,7 +135,7 @@
     {
       "day": "Sun, Sep 5",
       "time": "All day",
-      "item": "Reunion day"
+      "item": "Recovery / reunion day"
     },
     {
       "day": "Mon, Sep 6",
@@ -139,5 +149,31 @@
     "Last-place punishment, if it's you"
   ],
   "draftOrder": [],
-  "notes": []
+  "notes": [],
+  "housing": {
+    "howAssigned": "",
+    "tiers": [
+      {
+        "key": "apartments",
+        "name": "The Apartments",
+        "emoji": "👑",
+        "blurb": "The best of the best. Real beds, real doors, maybe even a pillow that isn't a rolled-up hoodie.",
+        "assigned": []
+      },
+      {
+        "key": "barracks",
+        "name": "The Barracks",
+        "emoji": "🪖",
+        "blurb": "Bunk beds, packed in tight. Snoring is guaranteed, but it beats the Warrens.",
+        "assigned": []
+      },
+      {
+        "key": "warrens",
+        "name": "The Warrens",
+        "emoji": "🐀",
+        "blurb": "Notorious. Scrappy conditions. Couches, floors, and whatever's left. Survival not guaranteed.",
+        "assigned": []
+      }
+    ]
+  }
 }

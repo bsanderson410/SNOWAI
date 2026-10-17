@@ -15,8 +15,12 @@ const h = draft.house;
 const houseFacts = [
   h.guests && `${h.guests} guests`,
   h.bedrooms && `${h.bedrooms} bedrooms`,
+  h.beds && `${h.beds} beds`,
   h.bathrooms && `${h.bathrooms} baths`,
 ].filter(Boolean);
+const housing = draft.housing;
+const placed = new Set(housing.tiers.flatMap((t) => t.assigned));
+const unassigned = draft.attendees.filter((a) => a.status !== 'out' && !placed.has(a.owner)).map((a) => a.owner);
 ---
 <Base title="Draft Weekend">
   <section class="hero card">
@@ -34,12 +38,29 @@ const houseFacts = [
   </section>
 
   <section class="card">
-    <h2>🏠 The House</h2>
+    <h2>🏠 {h.name ?? 'The House'}</h2>
     {houseFacts.length > 0 && <p><strong>{houseFacts.join(' · ')}</strong></p>}
     {h.highlights.length > 0 && <ul>{h.highlights.map((x) => <li>{x}</li>)}</ul>}
     <p>Check-in: {draft.checkIn || TBD} · Check-out: {draft.checkOut || TBD}</p>
     <a class="button" href={draft.listingUrl}>View the house on Airbnb →</a>
     <p class="muted small">Exact address and door codes go in the group chat, not on this public page.</p>
+  </section>
+
+  <section class="card">
+    <h2>🛏️ Housing Assignments</h2>
+    <p class="muted">{housing.howAssigned || 'How beds get assigned: TBD. Announced on arrival.'}</p>
+    <div class="tiers">
+      {housing.tiers.map((t) => (
+        <div class={`tier ${t.key}`}>
+          <p class="tier-name">{t.emoji} {t.name}</p>
+          <p class="small">{t.blurb}</p>
+          {t.assigned.length
+            ? <ul>{t.assigned.map((o) => <li><a href={url(`/franchises/${ownerSlug(o)}`)}>{o}</a></li>)}</ul>
+            : <p class="muted small">Residents TBD</p>}
+        </div>
+      ))}
+    </div>
+    {placed.size > 0 && unassigned.length > 0 && <p class="muted small">Still unhoused: {unassigned.join(', ')}</p>}
   </section>
 
   <section class="card">
@@ -130,5 +151,13 @@ const houseFacts = [
   .big { font-size: 1.5rem; margin: 0; }
   .small { font-size: 0.85rem; }
   .wrap { white-space: normal; }
+  .tiers { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .tier { border-radius: 10px; padding: 0.75rem 1rem; border: 2px solid var(--border); }
+  .tier p { margin: 0.2rem 0; }
+  .tier ul { margin: 0.4rem 0 0; padding-left: 1.1rem; }
+  .tier-name { font-weight: 800; font-size: 1.1rem; }
+  .tier.apartments { border-color: #d4a017; background: color-mix(in srgb, #d4a017 10%, transparent); }
+  .tier.barracks { border-color: #5a7d4a; background: color-mix(in srgb, #5a7d4a 10%, transparent); }
+  .tier.warrens { border-color: #8b5a2b; background: color-mix(in srgb, #8b5a2b 12%, transparent); }
   @media (prefers-color-scheme: dark) { .hero { background: linear-gradient(135deg, #1b4fa8, #2a6fd6); } .button { color: #0f1520; } }
 </style>
