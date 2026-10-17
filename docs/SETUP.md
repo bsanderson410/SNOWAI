@@ -12,8 +12,9 @@ Edit these on github.com (pencil icon) or locally:
 1. Repo → **Settings → Pages**.
 2. Under **Build and deployment → Source**, choose **GitHub Actions**.
 3. Go to the **Actions** tab → "Deploy to GitHub Pages" → **Run workflow** (or just push to `main`).
-4. The site appears at `https://bsanderson410.github.io/snowai/` temporarily.
-   *(Links will only work properly once the custom domain in step 4 is attached, since the site is built for a root domain.)*
+4. The site is live (free) at `https://bsanderson410.github.io/snowai/`.
+   Steps 3–4 below are optional — only needed if you want your own domain. The workflow
+   automatically adjusts links once a custom domain is attached.
 
 > **Private repo?** GitHub Pages on private repos requires GitHub Pro ($4/mo). Either make the repo
 > public (it only contains league data) or use Cloudflare Pages / Netlify instead (see bottom).

@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
 
-// Change `site` once your domain is live (e.g. https://snowai.com).
+// SITE_URL / BASE_PATH are set automatically by the deploy workflow:
+// on bsanderson410.github.io the base is /snowai; once a custom domain is attached it becomes /.
 export default defineConfig({
-  site: 'https://snowai.com',
+  site: process.env.SITE_URL || 'https://snowai.com',
+  base: process.env.BASE_PATH || '/',
 });

@@ -1,5 +1,6 @@
 ---
 import league from '../data/league.json';
+import { url } from '../lib/standings.js';
 const title = Astro.props.title ?? Astro.props.frontmatter?.title;
 const nav = [
   ['/', 'Home'],
@@ -11,21 +12,22 @@ const nav = [
   ['/rules', 'Rules'],
 ];
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href) => path === (url(href).replace(/\/$/, '') || '/');
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
     <title>{title ? `${title} | ${league.shortName}` : league.name}</title>
   </head>
   <body>
     <header>
-      <a class="brand" href="/">❄ {league.shortName}</a>
+      <a class="brand" href={url('/')}>❄ {league.shortName}</a>
       <nav>
         {nav.map(([href, label]) => (
-          <a href={href} class={path === href ? 'active' : ''}>{label}</a>
+          <a href={url(href)} class={isActive(href) ? 'active' : ''}>{label}</a>
         ))}
       </nav>
     </header>

@@ -45,3 +45,6 @@ export function getNews() {
     .map((p) => ({ ...p.frontmatter, slug: p.file.split('/').pop().replace(/\.md$/, ''), Content: p.Content }))
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 }
+
+// Prefix internal links with the base path (e.g. /snowai on github.io; empty on a custom domain).
+export const url = (path) => `${import.meta.env.BASE_URL.replace(/\/$/, '')}${path}`;
