@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getNews } from '../../lib/standings.js';
+
+export function getStaticPaths() {
+  return getNews().map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = post;
+---
+<Base title={post.title}>
+  <article class="card">
+    <h1>{post.title}</h1>
+    <p class="muted">{new Date(post.date).toLocaleDateString('en-US', { timeZone: 'UTC' })}{post.author && ` · ${post.author}`}</p>
+    <Content />
+  </article>
+  <a href="/news">← All news</a>
+</Base>

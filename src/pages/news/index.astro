@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getNews } from '../../lib/standings.js';
+const posts = getNews();
+---
+<Base title="News">
+  <h1>News & Recaps</h1>
+  {posts.map((p) => (
+    <article class="card">
+      <h2 style="margin:0"><a href={`/news/${p.slug}`}>{p.title}</a></h2>
+      <p class="muted" style="margin:0.25rem 0 0">{new Date(p.date).toLocaleDateString('en-US', { timeZone: 'UTC' })}{p.author && ` · ${p.author}`}</p>
+    </article>
+  ))}
+</Base>

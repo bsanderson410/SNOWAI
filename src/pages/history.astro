@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import history from '../data/history.json';
+const seasons = [...history].sort((a, b) => b.season - a.season);
+---
+<Base title="History">
+  <h1>League History</h1>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Season</th><th>🏆 Champion</th><th>Runner-up</th><th>🚽 Last place</th></tr></thead>
+      <tbody>
+        {seasons.map((s) => (
+          <tr><td>{s.season}</td><td><strong>{s.champion}</strong></td><td>{s.runnerUp}</td><td>{s.lastPlace}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</Base>

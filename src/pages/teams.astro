@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import { getStandings } from '../lib/standings.js';
+const teams = getStandings();
+---
+<Base title="Teams">
+  <h1>Teams</h1>
+  <div class="grid">
+    {teams.map((t) => (
+      <div class="card">
+        <h3 style="margin-top:0">{t.name}</h3>
+        <p class="muted">Owner: {t.owner}</p>
+        <p>Record: <strong>{t.wins}-{t.losses}-{t.ties}</strong><br />Points for: {t.pointsFor.toFixed(1)}</p>
+      </div>
+    ))}
+  </div>
+</Base>

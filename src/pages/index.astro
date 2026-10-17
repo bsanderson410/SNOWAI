@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import league from '../data/league.json';
+import { getStandings, getNews } from '../lib/standings.js';
+const top = getStandings().slice(0, 3);
+const latest = getNews().slice(0, 3);
+---
+<Base>
+  <h1>{league.name}</h1>
+  <p class="muted">{league.tagline}</p>
+
+  <section class="card">
+    <h2>Top of the table</h2>
+    <ol>
+      {top.map((t) => <li><strong>{t.name}</strong> ({t.wins}-{t.losses}{t.ties ? `-${t.ties}` : ''}) — {t.pointsFor.toFixed(1)} PF</li>)}
+    </ol>
+    <a href="/standings">Full standings →</a>
+  </section>
+
+  <section class="card">
+    <h2>Latest news</h2>
+    {latest.length === 0 && <p class="muted">No posts yet.</p>}
+    <ul>
+      {latest.map((p) => <li><a href={`/news/${p.slug}`}>{p.title}</a> <span class="muted">· {p.date && new Date(p.date).toLocaleDateString('en-US', { timeZone: 'UTC' })}</span></li>)}
+    </ul>
+  </section>
+</Base>

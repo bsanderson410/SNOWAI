@@ -1,0 +1,8 @@
+[
+  { "week": 1, "home": "team1", "away": "team2", "homeScore": 112.4, "awayScore": 98.7 },
+  { "week": 1, "home": "team3", "away": "team4", "homeScore": 87.2, "awayScore": 121.9 },
+  { "week": 2, "home": "team1", "away": "team3", "homeScore": 101.0, "awayScore": 104.3 },
+  { "week": 2, "home": "team2", "away": "team4", "homeScore": 130.5, "awayScore": 95.1 },
+  { "week": 3, "home": "team1", "away": "team4" },
+  { "week": 3, "home": "team2", "away": "team3" }
+]

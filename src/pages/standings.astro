@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import { getStandings } from '../lib/standings.js';
+const rows = getStandings();
+---
+<Base title="Standings">
+  <h1>Standings</h1>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>Team</th><th>Owner</th><th class="num">W-L-T</th><th class="num">PF</th><th class="num">PA</th></tr>
+      </thead>
+      <tbody>
+        {rows.map((r, i) => (
+          <tr>
+            <td>{i + 1}</td>
+            <td><strong>{r.name}</strong></td>
+            <td class="muted">{r.owner}</td>
+            <td class="num">{r.wins}-{r.losses}-{r.ties}</td>
+            <td class="num">{r.pointsFor.toFixed(1)}</td>
+            <td class="num">{r.pointsAgainst.toFixed(1)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="muted">Sorted by win % then points for. Calculated automatically from <code>src/data/matchups.json</code>.</p>
+</Base>

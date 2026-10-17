@@ -1,0 +1,6 @@
+[
+  { "id": "team1", "name": "Team One", "owner": "Owner 1" },
+  { "id": "team2", "name": "Team Two", "owner": "Owner 2" },
+  { "id": "team3", "name": "Team Three", "owner": "Owner 3" },
+  { "id": "team4", "name": "Team Four", "owner": "Owner 4" }
+]

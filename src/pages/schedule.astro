@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import { getWeeks, teamById, isPlayed } from '../lib/standings.js';
+const weeks = getWeeks();
+const cls = (m, side) => {
+  if (!isPlayed(m)) return '';
+  const mine = side === 'home' ? m.homeScore : m.awayScore;
+  const theirs = side === 'home' ? m.awayScore : m.homeScore;
+  return mine > theirs ? 'win' : '';
+};
+---
+<Base title="Schedule">
+  <h1>Schedule & Results</h1>
+  {weeks.map(({ week, games }) => (
+    <section class="card">
+      <h2>Week {week}</h2>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            {games.map((m) => (
+              <tr>
+                <td class={cls(m, 'home')}>{teamById[m.home]?.name ?? m.home}</td>
+                <td class={`num ${cls(m, 'home')}`}>{isPlayed(m) ? m.homeScore.toFixed(1) : '—'}</td>
+                <td class="muted">vs</td>
+                <td class={`num ${cls(m, 'away')}`}>{isPlayed(m) ? m.awayScore.toFixed(1) : '—'}</td>
+                <td class={cls(m, 'away')}>{teamById[m.away]?.name ?? m.away}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  ))}
+</Base>
