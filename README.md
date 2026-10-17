@@ -15,7 +15,7 @@ src/
     league.json     ← league name, season, commissioner, tagline
     teams.json      ← teams + owners
     matchups.json   ← weekly schedule + scores (standings computed from this)
-    history.json    ← past champions / last place
+    history.json    ← every past season's final standings (from the league history Google Sheet)
   news/*.md         ← weekly recaps & trash talk (one file per post)
   pages/            ← one file per page (rules.md is the league constitution)
   layouts/Base.astro← header, nav, footer, site-wide styles

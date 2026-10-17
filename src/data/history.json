@@ -1,3 +1,1587 @@
 [
-  { "season": 2025, "champion": "Owner 1", "runnerUp": "Owner 3", "lastPlace": "Owner 4" }
+  {
+    "season": 2025,
+    "standings": [
+      {
+        "owner": "Tate",
+        "team": "Sailor Goon",
+        "rank": 1,
+        "playoffs": true,
+        "wins": 13,
+        "losses": 1,
+        "pointsFor": 2135.4,
+        "pointsAgainst": 1542.77
+      },
+      {
+        "owner": "Brady",
+        "team": "Ohio Against the World",
+        "rank": 2,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 4,
+        "pointsFor": 1879.95,
+        "pointsAgainst": 1653.86
+      },
+      {
+        "owner": "Sam",
+        "team": "Trade Federation",
+        "rank": 3,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 4,
+        "pointsFor": 1769.73,
+        "pointsAgainst": 1648.91
+      },
+      {
+        "owner": "Daniel",
+        "team": "Franz Ferdanand",
+        "rank": 4,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1635.55,
+        "pointsAgainst": 1547.37
+      },
+      {
+        "owner": "Josh",
+        "team": "Coyote’s Cocky Team",
+        "rank": 5,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1666.22,
+        "pointsAgainst": 1558.75
+      },
+      {
+        "owner": "Michael",
+        "team": "Fungiville Fungi",
+        "rank": 6,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1514.62,
+        "pointsAgainst": 1521.57
+      },
+      {
+        "owner": "Tommy C",
+        "team": "Jupiter’s Little Devil",
+        "rank": 7,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1458.86,
+        "pointsAgainst": 1472.01
+      },
+      {
+        "owner": "Will",
+        "team": "The Burly Lords",
+        "rank": 8,
+        "playoffs": true,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1639.22,
+        "pointsAgainst": 1596.45
+      },
+      {
+        "owner": "Tripp",
+        "team": "Tripp’s Football Team",
+        "rank": 9,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1625.07,
+        "pointsAgainst": 1621.78
+      },
+      {
+        "owner": "Anthony",
+        "team": "The zogma D leagues",
+        "rank": 10,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1591.29,
+        "pointsAgainst": 1590.12
+      },
+      {
+        "owner": "Luke",
+        "team": "4 yards a play",
+        "rank": 11,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1484.06,
+        "pointsAgainst": 1522.73
+      },
+      {
+        "owner": "Tommy F",
+        "team": "Tferrara",
+        "rank": 12,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 8,
+        "pointsFor": 1666.6,
+        "pointsAgainst": 1654.91
+      },
+      {
+        "owner": "Henry B",
+        "team": "Grunkville Goblins",
+        "rank": 13,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 8,
+        "pointsFor": 1611.21,
+        "pointsAgainst": 1743.87
+      },
+      {
+        "owner": "Trevor",
+        "team": "Martin’s Deli",
+        "rank": 14,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 8,
+        "pointsFor": 1439.51,
+        "pointsAgainst": 1500.14
+      },
+      {
+        "owner": "Henry R",
+        "team": "Speed Flex Offenders",
+        "rank": 15,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 9,
+        "pointsFor": 1578.36,
+        "pointsAgainst": 1749.24
+      },
+      {
+        "owner": "Ben",
+        "team": "2010s Saban's Children",
+        "rank": 16,
+        "playoffs": false,
+        "wins": 4,
+        "losses": 10,
+        "pointsFor": 1522.5,
+        "pointsAgainst": 1629.84
+      },
+      {
+        "owner": "Ethan",
+        "team": "Crogenheim Crusaders",
+        "rank": 17,
+        "playoffs": false,
+        "wins": 4,
+        "losses": 10,
+        "pointsFor": 1381.55,
+        "pointsAgainst": 1637.8
+      },
+      {
+        "owner": "Zak",
+        "team": "R.I.P.",
+        "rank": 18,
+        "playoffs": false,
+        "wins": 1,
+        "losses": 13,
+        "pointsFor": 1221.2,
+        "pointsAgainst": 1628.78
+      }
+    ]
+  },
+  {
+    "season": 2024,
+    "standings": [
+      {
+        "owner": "Tommy F",
+        "team": "Tferrara",
+        "rank": 1,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1781.48,
+        "pointsAgainst": 1593.26
+      },
+      {
+        "owner": "Will",
+        "team": "The Burly Lords",
+        "rank": 2,
+        "playoffs": true,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1676.3,
+        "pointsAgainst": 1646.24
+      },
+      {
+        "owner": "Sam",
+        "team": "Eating INTs",
+        "rank": 3,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1944.85,
+        "pointsAgainst": 1696.8
+      },
+      {
+        "owner": "Henry R",
+        "team": "Speed Flex Offenders",
+        "rank": 4,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1719.31,
+        "pointsAgainst": 1646.72
+      },
+      {
+        "owner": "Zak",
+        "team": "Peak Performance",
+        "rank": 5,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1747.27,
+        "pointsAgainst": 1664.46
+      },
+      {
+        "owner": "Daniel",
+        "team": "DefendingChamp",
+        "rank": 6,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1506.75,
+        "pointsAgainst": 1474.6
+      },
+      {
+        "owner": "Luke",
+        "team": "TDs in my mouth",
+        "rank": 7,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 4,
+        "pointsFor": 1730.9,
+        "pointsAgainst": 1542.65
+      },
+      {
+        "owner": "Josh",
+        "team": "Coyote’s Cocky Team",
+        "rank": 8,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1607.78,
+        "pointsAgainst": 1551.23
+      },
+      {
+        "owner": "Brady",
+        "team": "Hawk Tua & Nacua",
+        "rank": 9,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1640.1,
+        "pointsAgainst": 1722.48
+      },
+      {
+        "owner": "Henry B",
+        "team": "Grunkville Goblins",
+        "rank": 10,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1574.4,
+        "pointsAgainst": 1552.46
+      },
+      {
+        "owner": "Ben",
+        "team": "Saban's Children",
+        "rank": 11,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 8,
+        "pointsFor": 1773.3,
+        "pointsAgainst": 1817.7
+      },
+      {
+        "owner": "Tommy C",
+        "team": "Jupiter’s Little Devil",
+        "rank": 12,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 8,
+        "pointsFor": 1680.66,
+        "pointsAgainst": 1660.08
+      },
+      {
+        "owner": "Michael",
+        "team": "Fungiville Fungi",
+        "rank": 13,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 8,
+        "pointsFor": 1431.94,
+        "pointsAgainst": 1611.58
+      },
+      {
+        "owner": "Trevor",
+        "team": "Hamburger Helper Hater",
+        "rank": 14,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 9,
+        "pointsFor": 1413.35,
+        "pointsAgainst": 1637.88
+      },
+      {
+        "owner": "Anthony",
+        "team": "The zogma D leagues",
+        "rank": 15,
+        "playoffs": false,
+        "wins": 4,
+        "losses": 10,
+        "pointsFor": 1600.4,
+        "pointsAgainst": 1842.0
+      },
+      {
+        "owner": "Tripp",
+        "team": "Tripp’s Football Team",
+        "rank": 16,
+        "playoffs": false,
+        "wins": 3,
+        "losses": 11,
+        "pointsFor": 1471.41,
+        "pointsAgainst": 1640.06
+      }
+    ]
+  },
+  {
+    "season": 2023,
+    "standings": [
+      {
+        "owner": "Daniel",
+        "team": "Death2PurificationSquad",
+        "rank": 1,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 4,
+        "pointsFor": 1635.0,
+        "pointsAgainst": 1629.84
+      },
+      {
+        "owner": "Sam",
+        "team": "BOGO Bijan Bonanza at B-DUBS!",
+        "rank": 2,
+        "playoffs": true,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1763.56,
+        "pointsAgainst": 1704.62
+      },
+      {
+        "owner": "Tommy F",
+        "team": "Tferrara",
+        "rank": 3,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1676.57,
+        "pointsAgainst": 1573.61
+      },
+      {
+        "owner": "Tommy C",
+        "team": "Jupiter’s Little Devil",
+        "rank": 4,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1701.77,
+        "pointsAgainst": 1699.42
+      },
+      {
+        "owner": "Henry R",
+        "team": "Speed Flex Offenders",
+        "rank": 5,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1620.35,
+        "pointsAgainst": 1599.5
+      },
+      {
+        "owner": "Luke",
+        "team": "It’s Joever",
+        "rank": 6,
+        "playoffs": true,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1693.54,
+        "pointsAgainst": 1568.29
+      },
+      {
+        "owner": "Brady",
+        "team": "Can You Digg It?",
+        "rank": 7,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1833.45,
+        "pointsAgainst": 1560.05
+      },
+      {
+        "owner": "Ben",
+        "team": "Saban's Children",
+        "rank": 8,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1641.65,
+        "pointsAgainst": 1547.34
+      },
+      {
+        "owner": "Michael",
+        "team": "Top 8 or Bust",
+        "rank": 9,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1642.19,
+        "pointsAgainst": 1598.35
+      },
+      {
+        "owner": "Tripp",
+        "team": "Tripp’s Football Team",
+        "rank": 10,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1611.89,
+        "pointsAgainst": 1629.03
+      },
+      {
+        "owner": "Zak",
+        "team": "Peak Performance",
+        "rank": 11,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1437.19,
+        "pointsAgainst": 1612.81
+      },
+      {
+        "owner": "Henry B",
+        "team": "Grunkville Goblins",
+        "rank": 12,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 8,
+        "pointsFor": 1683.3,
+        "pointsAgainst": 1680.5
+      },
+      {
+        "owner": "Josh",
+        "team": "Coyote’s Cocky Team",
+        "rank": 13,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 8,
+        "pointsFor": 1669.41,
+        "pointsAgainst": 1622.07
+      },
+      {
+        "owner": "Anthony",
+        "team": "The zogma D leagues",
+        "rank": 14,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 8,
+        "pointsFor": 1525.37,
+        "pointsAgainst": 1664.63
+      },
+      {
+        "owner": "Cooper",
+        "team": "The Pirates",
+        "rank": 15,
+        "playoffs": false,
+        "wins": 4,
+        "losses": 10,
+        "pointsFor": 1424.81,
+        "pointsAgainst": 1736.37
+      },
+      {
+        "owner": "Will",
+        "team": "The Burly Lords",
+        "rank": 16,
+        "playoffs": false,
+        "wins": 3,
+        "losses": 11,
+        "pointsFor": 1534.45,
+        "pointsAgainst": 1668.07
+      }
+    ]
+  },
+  {
+    "season": 2022,
+    "standings": [
+      {
+        "owner": "Ben",
+        "team": "Saban's Children",
+        "rank": 1,
+        "playoffs": true,
+        "wins": 11,
+        "losses": 3,
+        "pointsFor": 1710.43,
+        "pointsAgainst": 1464.93
+      },
+      {
+        "owner": "Josh",
+        "team": "Coyote’s Cocky Team",
+        "rank": 2,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1702.26,
+        "pointsAgainst": 1379.09
+      },
+      {
+        "owner": "Tommy F",
+        "team": "Tferrara",
+        "rank": 3,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 4,
+        "pointsFor": 1727.89,
+        "pointsAgainst": 1465.37
+      },
+      {
+        "owner": "Daniel",
+        "team": "Fratural Light",
+        "rank": 4,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1744.23,
+        "pointsAgainst": 1403.22
+      },
+      {
+        "owner": "Luke",
+        "team": "Herbie Fully Loaded",
+        "rank": 5,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1685.1,
+        "pointsAgainst": 1473.0
+      },
+      {
+        "owner": "Brady",
+        "team": "Can You Digg It?",
+        "rank": 6,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1710.57,
+        "pointsAgainst": 1596.4
+      },
+      {
+        "owner": "Henry R",
+        "team": "Speed Flex Offenders",
+        "rank": 7,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1466.85,
+        "pointsAgainst": 1563.56
+      },
+      {
+        "owner": "Henry B",
+        "team": "Grunkville Goblins",
+        "rank": 8,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 4,
+        "pointsFor": 1620.55,
+        "pointsAgainst": 1373.83
+      },
+      {
+        "owner": "Tommy C",
+        "team": "Hurts Don’t It?",
+        "rank": 9,
+        "playoffs": false,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1716.51,
+        "pointsAgainst": 1559.97
+      },
+      {
+        "owner": "Will",
+        "team": "The Burly Lords",
+        "rank": 10,
+        "playoffs": false,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1622.42,
+        "pointsAgainst": 1493.93
+      },
+      {
+        "owner": "Tripp",
+        "team": "Tripp’s Football Team (1x🏆)",
+        "rank": 11,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1616.35,
+        "pointsAgainst": 1498.19
+      },
+      {
+        "owner": "Michael",
+        "team": "NFL Youngboy = OPOY",
+        "rank": 12,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 8,
+        "pointsFor": 1418.61,
+        "pointsAgainst": 1563.2
+      },
+      {
+        "owner": "Zak",
+        "team": "Where yo mom at?",
+        "rank": 13,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 8,
+        "pointsFor": 1370.13,
+        "pointsAgainst": 1558.54
+      },
+      {
+        "owner": "Cooper",
+        "team": "The Pirates",
+        "rank": 14,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 9,
+        "pointsFor": 1282.13,
+        "pointsAgainst": 1480.34
+      },
+      {
+        "owner": "Anthony",
+        "team": "The zogma D leagues",
+        "rank": 15,
+        "playoffs": false,
+        "wins": 3,
+        "losses": 11,
+        "pointsFor": 1489.0,
+        "pointsAgainst": 1619.01
+      },
+      {
+        "owner": "Sam",
+        "team": "Cleveland Browns",
+        "rank": 16,
+        "playoffs": false,
+        "wins": 3,
+        "losses": 11,
+        "pointsFor": 1347.71,
+        "pointsAgainst": 1604.22
+      },
+      {
+        "owner": "John",
+        "team": "John's Choice Team",
+        "rank": 17,
+        "playoffs": false,
+        "wins": 2,
+        "losses": 12,
+        "pointsFor": 1023.25,
+        "pointsAgainst": 1615.28
+      },
+      {
+        "owner": "Jake",
+        "team": "Gahoona Squad",
+        "rank": 18,
+        "playoffs": false,
+        "wins": 2,
+        "losses": 12,
+        "pointsFor": 971.35,
+        "pointsAgainst": 1513.26
+      }
+    ]
+  },
+  {
+    "season": 2021,
+    "standings": [
+      {
+        "owner": "Brady",
+        "team": "Tyreek and Destroy",
+        "rank": 1,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1675.45,
+        "pointsAgainst": 1545.18
+      },
+      {
+        "owner": "Anthony",
+        "team": "The zogma D leagues",
+        "rank": 2,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1695.0,
+        "pointsAgainst": 1482.0
+      },
+      {
+        "owner": "Tommy C",
+        "team": "Flight’s crew",
+        "rank": 3,
+        "playoffs": true,
+        "wins": 11,
+        "losses": 3,
+        "pointsFor": 1783.79,
+        "pointsAgainst": 1436.74
+      },
+      {
+        "owner": "Josh",
+        "team": "Coyote’s Cocky Team",
+        "rank": 4,
+        "playoffs": true,
+        "wins": 11,
+        "losses": 3,
+        "pointsFor": 1870.79,
+        "pointsAgainst": 1506.09
+      },
+      {
+        "owner": "Sam",
+        "team": "Penetration Nation",
+        "rank": 5,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 4,
+        "pointsFor": 1652.67,
+        "pointsAgainst": 1425.12
+      },
+      {
+        "owner": "Will",
+        "team": "The Burly Lords",
+        "rank": 6,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1555.95,
+        "pointsAgainst": 1498.48
+      },
+      {
+        "owner": "Luke",
+        "team": "4 yards a play...",
+        "rank": 7,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1587.3,
+        "pointsAgainst": 1612.97
+      },
+      {
+        "owner": "Ben",
+        "team": "Saban's Children",
+        "rank": 8,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1739.39,
+        "pointsAgainst": 1536.66
+      },
+      {
+        "owner": "Tripp",
+        "team": "Tripp’s Football Team",
+        "rank": 9,
+        "playoffs": false,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1491.31,
+        "pointsAgainst": 1511.43
+      },
+      {
+        "owner": "Henry R",
+        "team": "Speed Flex Offenders",
+        "rank": 10,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1512.85,
+        "pointsAgainst": 1490.23
+      },
+      {
+        "owner": "Michael",
+        "team": "Big Ben's Golden Arm",
+        "rank": 11,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1504.84,
+        "pointsAgainst": 1507.62
+      },
+      {
+        "owner": "Henry B",
+        "team": "Grunkich Gang",
+        "rank": 12,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1494.76,
+        "pointsAgainst": 1548.2
+      },
+      {
+        "owner": "Tommy F",
+        "team": "Tferrara",
+        "rank": 13,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 9,
+        "pointsFor": 1544.86,
+        "pointsAgainst": 1660.23
+      },
+      {
+        "owner": "Daniel",
+        "team": "First Round Exit",
+        "rank": 14,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 9,
+        "pointsFor": 1376.67,
+        "pointsAgainst": 1487.75
+      },
+      {
+        "owner": "Jake",
+        "team": "Gahoona Squad",
+        "rank": 15,
+        "playoffs": false,
+        "wins": 4,
+        "losses": 10,
+        "pointsFor": 1538.66,
+        "pointsAgainst": 1720.63
+      },
+      {
+        "owner": "Colin",
+        "team": "69 420",
+        "rank": 16,
+        "playoffs": false,
+        "wins": 4,
+        "losses": 10,
+        "pointsFor": 1300.91,
+        "pointsAgainst": 1720.9
+      },
+      {
+        "owner": "Cooper",
+        "team": "The Pirates",
+        "rank": 17,
+        "playoffs": false,
+        "wins": 3,
+        "losses": 11,
+        "pointsFor": 1286.95,
+        "pointsAgainst": 1662.82
+      },
+      {
+        "owner": "Zak",
+        "team": "Show me your TDs",
+        "rank": 18,
+        "playoffs": false,
+        "wins": 2,
+        "losses": 12,
+        "pointsFor": 1391.5,
+        "pointsAgainst": 1650.6
+      }
+    ]
+  },
+  {
+    "season": 2020,
+    "standings": [
+      {
+        "owner": "Luke",
+        "team": "4 yards a play...",
+        "rank": 1,
+        "playoffs": true,
+        "wins": 7,
+        "losses": 6,
+        "pointsFor": 1113.67,
+        "pointsAgainst": 1050.41
+      },
+      {
+        "owner": "Tommy C",
+        "team": "Flight’s crew",
+        "rank": 2,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 5,
+        "pointsFor": 1366.39,
+        "pointsAgainst": 1140.03
+      },
+      {
+        "owner": "Ben",
+        "team": "Saban's Children",
+        "rank": 3,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 5,
+        "pointsFor": 1383.73,
+        "pointsAgainst": 1254.81
+      },
+      {
+        "owner": "Cooper",
+        "team": "The Pirates",
+        "rank": 4,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 3,
+        "pointsFor": 1331.67,
+        "pointsAgainst": 1166.79
+      },
+      {
+        "owner": "Tate",
+        "team": "White Power",
+        "rank": 5,
+        "playoffs": true,
+        "wins": 11,
+        "losses": 2,
+        "pointsFor": 1322.36,
+        "pointsAgainst": 1136.36
+      },
+      {
+        "owner": "Josh",
+        "team": "Coyote’s Cocky Team",
+        "rank": 6,
+        "playoffs": true,
+        "wins": 7,
+        "losses": 6,
+        "pointsFor": 1213.8,
+        "pointsAgainst": 1162.31
+      },
+      {
+        "owner": "Brady",
+        "team": "The Real Mr.Brady’s",
+        "rank": 7,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 4,
+        "pointsFor": 1368.15,
+        "pointsAgainst": 1074.95
+      },
+      {
+        "owner": "Henry R",
+        "team": "Speed Flex Offenders",
+        "rank": 8,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 3,
+        "pointsFor": 1273.45,
+        "pointsAgainst": 1186.72
+      },
+      {
+        "owner": "Daniel",
+        "team": "‘sko Bucks",
+        "rank": 9,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 7,
+        "pointsFor": 1227.7,
+        "pointsAgainst": 1165.7
+      },
+      {
+        "owner": "Michael",
+        "team": "#MaddenDropEA",
+        "rank": 10,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 7,
+        "pointsFor": 1194.69,
+        "pointsAgainst": 1191.01
+      },
+      {
+        "owner": "Will",
+        "team": "The Burly Lords",
+        "rank": 11,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 8,
+        "pointsFor": 1287.65,
+        "pointsAgainst": 1378.69
+      },
+      {
+        "owner": "Tommy F",
+        "team": "Tferrara",
+        "rank": 12,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 8,
+        "pointsFor": 1186.53,
+        "pointsAgainst": 1216.9
+      },
+      {
+        "owner": "Tripp",
+        "team": "Tripp’s Team",
+        "rank": 13,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 8,
+        "pointsFor": 1136.08,
+        "pointsAgainst": 1266.65
+      },
+      {
+        "owner": "Jake",
+        "team": "Gahoona Squad",
+        "rank": 14,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 8,
+        "pointsFor": 1123.7,
+        "pointsAgainst": 1190.13
+      },
+      {
+        "owner": "Henry B",
+        "team": "Grunkich Gang",
+        "rank": 15,
+        "playoffs": false,
+        "wins": 4,
+        "losses": 9,
+        "pointsFor": 1202.81,
+        "pointsAgainst": 1278.46
+      },
+      {
+        "owner": "Anthony",
+        "team": "The zogma D leagues",
+        "rank": 16,
+        "playoffs": false,
+        "wins": 4,
+        "losses": 9,
+        "pointsFor": 1083.22,
+        "pointsAgainst": 1244.64
+      },
+      {
+        "owner": "Colin",
+        "team": "69 420",
+        "rank": 17,
+        "playoffs": false,
+        "wins": 4,
+        "losses": 9,
+        "pointsFor": 808.44,
+        "pointsAgainst": 1205.45
+      },
+      {
+        "owner": "Zak",
+        "team": "My team sucks",
+        "rank": 18,
+        "playoffs": false,
+        "wins": 3,
+        "losses": 10,
+        "pointsFor": 929.58,
+        "pointsAgainst": 1243.61
+      }
+    ]
+  },
+  {
+    "season": 2019,
+    "standings": [
+      {
+        "owner": "Luke",
+        "team": "4 yards a play...",
+        "rank": 1,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 4,
+        "pointsFor": 1414.01,
+        "pointsAgainst": 1317.09
+      },
+      {
+        "owner": "Daniel",
+        "team": "Razor 69 Space Balls",
+        "rank": 2,
+        "playoffs": true,
+        "wins": 7,
+        "losses": 6,
+        "pointsFor": 1384.43,
+        "pointsAgainst": 1412.18
+      },
+      {
+        "owner": "Tommy C",
+        "team": "Toms Tip Top Dynasty",
+        "rank": 3,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 5,
+        "pointsFor": 1288.4,
+        "pointsAgainst": 1227.61
+      },
+      {
+        "owner": "Josh",
+        "team": "Coyote’s Cocky Team",
+        "rank": 4,
+        "playoffs": true,
+        "wins": 12,
+        "losses": 1,
+        "pointsFor": 1534.55,
+        "pointsAgainst": 1099.14
+      },
+      {
+        "owner": "Tate",
+        "team": "White Power",
+        "rank": 5,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 4,
+        "pointsFor": 1518.73,
+        "pointsAgainst": 1215.09
+      },
+      {
+        "owner": "Tripp",
+        "team": "Ram 16 Stud",
+        "rank": 6,
+        "playoffs": true,
+        "wins": 7,
+        "losses": 6,
+        "pointsFor": 1367.64,
+        "pointsAgainst": 1253.53
+      },
+      {
+        "owner": "Zak",
+        "team": "The 6-8 inchers",
+        "rank": 7,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 5,
+        "pointsFor": 1405.85,
+        "pointsAgainst": 1204.04
+      },
+      {
+        "owner": "Tommy F",
+        "team": "Tferrara",
+        "rank": 8,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 3,
+        "pointsFor": 1354.98,
+        "pointsAgainst": 1171.56
+      },
+      {
+        "owner": "Colin",
+        "team": "69 420",
+        "rank": 9,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 6,
+        "pointsFor": 1222.99,
+        "pointsAgainst": 1315.18
+      },
+      {
+        "owner": "Ben",
+        "team": "to the boards",
+        "rank": 10,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 6,
+        "pointsFor": 1221.58,
+        "pointsAgainst": 1220.23
+      },
+      {
+        "owner": "Henry B",
+        "team": "Grunkich Gang",
+        "rank": 11,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 6,
+        "pointsFor": 1177.93,
+        "pointsAgainst": 1292.95
+      },
+      {
+        "owner": "Anthony",
+        "team": "The zogma D leagues",
+        "rank": 12,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 7,
+        "pointsFor": 1290.43,
+        "pointsAgainst": 1335.12
+      },
+      {
+        "owner": "Will",
+        "team": "The Burly Lords",
+        "rank": 13,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 8,
+        "pointsFor": 1268.0,
+        "pointsAgainst": 1362.72
+      },
+      {
+        "owner": "Michael",
+        "team": "Ram 26 G Gap",
+        "rank": 14,
+        "playoffs": false,
+        "wins": 4,
+        "losses": 9,
+        "pointsFor": 1215.64,
+        "pointsAgainst": 1279.09
+      },
+      {
+        "owner": "Henry R",
+        "team": "Speed Flex Offenders",
+        "rank": 15,
+        "playoffs": false,
+        "wins": 4,
+        "losses": 9,
+        "pointsFor": 1195.32,
+        "pointsAgainst": 1387.49
+      },
+      {
+        "owner": "Brady",
+        "team": "The Real Mr.Brady’s",
+        "rank": 16,
+        "playoffs": false,
+        "wins": 3,
+        "losses": 10,
+        "pointsFor": 1235.13,
+        "pointsAgainst": 1425.2
+      },
+      {
+        "owner": "Jake",
+        "team": "Gahoona Squad",
+        "rank": 17,
+        "playoffs": false,
+        "wins": 3,
+        "losses": 10,
+        "pointsFor": 1088.16,
+        "pointsAgainst": 1319.55
+      },
+      {
+        "owner": "Manager less",
+        "team": "Manager-less Team",
+        "rank": 18,
+        "playoffs": false,
+        "wins": 1,
+        "losses": 12,
+        "pointsFor": 819.68,
+        "pointsAgainst": 1165.68
+      }
+    ]
+  },
+  {
+    "season": 2018,
+    "standings": [
+      {
+        "owner": "Tripp",
+        "team": "Tripp’s team",
+        "rank": 1,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 4,
+        "pointsFor": 1729.31,
+        "pointsAgainst": 1624.73
+      },
+      {
+        "owner": "Tommy C",
+        "team": "Tommy's Tip Top Team",
+        "rank": 2,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 4,
+        "pointsFor": 1583.96,
+        "pointsAgainst": 1461.47
+      },
+      {
+        "owner": "Ben",
+        "team": "Slaughter",
+        "rank": 3,
+        "playoffs": true,
+        "wins": 12,
+        "losses": 2,
+        "pointsFor": 1796.98,
+        "pointsAgainst": 1357.64
+      },
+      {
+        "owner": "Jake",
+        "team": "Gahoona Squad",
+        "rank": 4,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1522.54,
+        "pointsAgainst": 1491.03
+      },
+      {
+        "owner": "Tate",
+        "team": "Guest E",
+        "rank": 5,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 4,
+        "pointsFor": 1573.08,
+        "pointsAgainst": 1474.37
+      },
+      {
+        "owner": "Will",
+        "team": "The Burly Lords",
+        "rank": 6,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 4,
+        "pointsFor": 1641.13,
+        "pointsAgainst": 1453.81
+      },
+      {
+        "owner": "Brady",
+        "team": "Brady's Ballerz",
+        "rank": 7,
+        "playoffs": false,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1535.28,
+        "pointsAgainst": 1387.62
+      },
+      {
+        "owner": "Daniel",
+        "team": "Dan’s House of Pain",
+        "rank": 8,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 9,
+        "pointsFor": 1446.02,
+        "pointsAgainst": 1409.27
+      },
+      {
+        "owner": "Josh",
+        "team": "Coyote’s Cocky Team",
+        "rank": 9,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 9,
+        "pointsFor": 1663.83,
+        "pointsAgainst": 1663.48
+      },
+      {
+        "owner": "Henry R",
+        "team": "Syndromatic",
+        "rank": 10,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1582.97,
+        "pointsAgainst": 1584.23
+      },
+      {
+        "owner": "Zak",
+        "team": "Big Logged Hogs",
+        "rank": 11,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 8,
+        "pointsFor": 1444.91,
+        "pointsAgainst": 1535.09
+      },
+      {
+        "owner": "Tommy F",
+        "team": "Cricket Wireless",
+        "rank": 12,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1441.49,
+        "pointsAgainst": 1539.2
+      },
+      {
+        "owner": "Henry B",
+        "team": "CedarPointFanz",
+        "rank": 13,
+        "playoffs": false,
+        "wins": 4,
+        "losses": 10,
+        "pointsFor": 1349.86,
+        "pointsAgainst": 1578.68
+      },
+      {
+        "owner": "Colin",
+        "team": "Sprint 1x",
+        "rank": 14,
+        "playoffs": false,
+        "wins": 4,
+        "losses": 10,
+        "pointsFor": 1272.36,
+        "pointsAgainst": 1534.89
+      },
+      {
+        "owner": "Michael",
+        "team": "You Will Beat Me",
+        "rank": 15,
+        "playoffs": false,
+        "wins": 3,
+        "losses": 11,
+        "pointsFor": 1231.82,
+        "pointsAgainst": 1511.36
+      },
+      {
+        "owner": "Anthony",
+        "team": "The zogma D leagues",
+        "rank": 16,
+        "playoffs": false,
+        "wins": 2,
+        "losses": 12,
+        "pointsFor": 1425.9,
+        "pointsAgainst": 1634.57
+      }
+    ]
+  },
+  {
+    "season": 2017,
+    "standings": [
+      {
+        "owner": "Tommy C",
+        "team": "Tommy's Tip Top Team",
+        "rank": 1,
+        "playoffs": true,
+        "wins": 10,
+        "losses": 4,
+        "pointsFor": 1331.38,
+        "pointsAgainst": 1099.48
+      },
+      {
+        "owner": "Will",
+        "team": "The Burly Lords",
+        "rank": 2,
+        "playoffs": true,
+        "wins": 11,
+        "losses": 3,
+        "pointsFor": 1378.76,
+        "pointsAgainst": 1258.9
+      },
+      {
+        "owner": "Tate",
+        "team": "Tate's Losing Team",
+        "rank": 3,
+        "playoffs": true,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1399.67,
+        "pointsAgainst": 1289.37
+      },
+      {
+        "owner": "Henry R",
+        "team": "Syndromatic",
+        "rank": 4,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1270.54,
+        "pointsAgainst": 1244.2
+      },
+      {
+        "owner": "Josh",
+        "team": "Perriney's Team",
+        "rank": 5,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1445.71,
+        "pointsAgainst": 1127.82
+      },
+      {
+        "owner": "Jake",
+        "team": "Gahoona Squad",
+        "rank": 6,
+        "playoffs": true,
+        "wins": 9,
+        "losses": 5,
+        "pointsFor": 1242.74,
+        "pointsAgainst": 1182.21
+      },
+      {
+        "owner": "Daniel",
+        "team": "Factory of Sadness",
+        "rank": 7,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 9,
+        "pointsFor": 1425.61,
+        "pointsAgainst": 1448.65
+      },
+      {
+        "owner": "Ben",
+        "team": "Hypebeast",
+        "rank": 8,
+        "playoffs": false,
+        "wins": 8,
+        "losses": 6,
+        "pointsFor": 1274.16,
+        "pointsAgainst": 1202.4
+      },
+      {
+        "owner": "Tripp",
+        "team": "Tripps tiard team",
+        "rank": 9,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1235.92,
+        "pointsAgainst": 1110.21
+      },
+      {
+        "owner": "Henry B",
+        "team": "CedarPointFanz",
+        "rank": 10,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 8,
+        "pointsFor": 1145.2,
+        "pointsAgainst": 1228.11
+      },
+      {
+        "owner": "Anthony",
+        "team": "The zogma D leagues",
+        "rank": 11,
+        "playoffs": false,
+        "wins": 6,
+        "losses": 8,
+        "pointsFor": 909.81,
+        "pointsAgainst": 1089.45
+      },
+      {
+        "owner": "Zak",
+        "team": "Hogs Galore",
+        "rank": 12,
+        "playoffs": false,
+        "wins": 7,
+        "losses": 7,
+        "pointsFor": 1163.06,
+        "pointsAgainst": 1185.03
+      },
+      {
+        "owner": "Brady",
+        "team": "Brady's Ballerz",
+        "rank": 13,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 9,
+        "pointsFor": 1138.53,
+        "pointsAgainst": 1291.24
+      },
+      {
+        "owner": "Tommy F",
+        "team": "Kachowski⚡️⚡️⚡️⚡️",
+        "rank": 14,
+        "playoffs": false,
+        "wins": 5,
+        "losses": 9,
+        "pointsFor": 1090.91,
+        "pointsAgainst": 1212.95
+      },
+      {
+        "owner": "Colin",
+        "team": "Hamburgerler",
+        "rank": 15,
+        "playoffs": false,
+        "wins": 4,
+        "losses": 10,
+        "pointsFor": 915.77,
+        "pointsAgainst": 1158.64
+      },
+      {
+        "owner": "Michael",
+        "team": "Michael's Scrappers",
+        "rank": 16,
+        "playoffs": false,
+        "wins": 3,
+        "losses": 11,
+        "pointsFor": 1068.56,
+        "pointsAgainst": 1307.67
+      }
+    ]
+  }
 ]

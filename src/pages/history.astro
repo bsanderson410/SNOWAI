@@ -1,18 +1,101 @@
 ---
 import Base from '../layouts/Base.astro';
-import history from '../data/history.json';
-const seasons = [...history].sort((a, b) => b.season - a.season);
+import { getSeasons, getChampions, getAllTime, getRecords } from '../lib/history.js';
+const seasons = getSeasons();
+const champions = getChampions();
+const allTime = getAllTime();
+const records = getRecords();
+const pct = (x) => x.toFixed(3).replace(/^0/, '');
 ---
 <Base title="History">
   <h1>League History</h1>
-  <div class="table-wrap">
+  <p class="muted">{seasons.length} seasons, {seasons.at(-1).season}–{seasons[0].season}.</p>
+
+  <h2>🏆 Champions</h2>
+  <div class="table-wrap card" style="padding:0">
     <table>
-      <thead><tr><th>Season</th><th>🏆 Champion</th><th>Runner-up</th><th>🚽 Last place</th></tr></thead>
+      <thead><tr><th>Season</th><th>Champion</th><th>Runner-up</th><th>🚽 Last place</th></tr></thead>
       <tbody>
-        {seasons.map((s) => (
-          <tr><td>{s.season}</td><td><strong>{s.champion}</strong></td><td>{s.runnerUp}</td><td>{s.lastPlace}</td></tr>
+        {champions.map((c) => (
+          <tr>
+            <td>{c.season}</td>
+            <td><strong>{c.champion.owner}</strong><br /><span class="muted small">{c.champion.team}</span></td>
+            <td>{c.runnerUp.owner}<br /><span class="muted small">{c.runnerUp.team}</span></td>
+            <td>{c.lastPlace.owner}<br /><span class="muted small">{c.lastPlace.team}</span></td>
+          </tr>
         ))}
       </tbody>
     </table>
   </div>
+
+  <h2>All-time leaderboard</h2>
+  <div class="table-wrap card" style="padding:0">
+    <table>
+      <thead>
+        <tr>
+          <th>Owner</th><th class="num">Titles</th><th class="num">Finals</th><th class="num">Playoffs</th>
+          <th class="num">W-L</th><th class="num">Win %</th><th class="num">Avg PF</th><th class="num">Last</th><th class="num">Yrs</th>
+        </tr>
+      </thead>
+      <tbody>
+        {allTime.map((o) => (
+          <tr>
+            <td><strong>{o.owner}</strong></td>
+            <td class="num">{o.titles ? '🏆'.repeat(o.titles) : '–'}</td>
+            <td class="num">{o.finals}</td>
+            <td class="num">{o.playoffs}</td>
+            <td class="num">{o.wins}-{o.losses}</td>
+            <td class="num">{pct(o.winPct)}</td>
+            <td class="num">{o.avgPoints.toFixed(1)}</td>
+            <td class="num">{o.lastPlace || '–'}</td>
+            <td class="num">{o.seasons}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="muted small">Finals = finished 1st or 2nd. Last = last-place finishes.</p>
+
+  <h2>Record book</h2>
+  <div class="grid">
+    {records.map((r) => (
+      <div class="card">
+        <p class="muted small" style="margin:0">{r.label}</p>
+        <p style="margin:0.25rem 0 0; font-size:1.25rem"><strong>{r.value}</strong></p>
+        <p class="muted small" style="margin:0">{r.owner} · {r.team} ({r.season})</p>
+      </div>
+    ))}
+  </div>
+
+  <h2>Season by season</h2>
+  {seasons.map(({ season, standings }) => (
+    <details class="card">
+      <summary><strong>{season}</strong> <span class="muted">· 🏆 {standings[0].owner}</span></summary>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Owner</th><th>Team</th><th class="num">W-L</th><th class="num">PF</th><th class="num">PA</th></tr></thead>
+          <tbody>
+            {standings.map((t) => (
+              <tr>
+                <td>{t.rank}{t.playoffs ? '*' : ''}</td>
+                <td>{t.owner}</td>
+                <td class="muted">{t.team}</td>
+                <td class="num">{t.wins}-{t.losses}</td>
+                <td class="num">{t.pointsFor.toFixed(1)}</td>
+                <td class="num">{t.pointsAgainst.toFixed(1)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="muted small">* made playoffs. Rank is final finish.</p>
+    </details>
+  ))}
 </Base>
+
+<style>
+  h2 { margin-top: 2rem; }
+  .small { font-size: 0.8rem; }
+  summary { cursor: pointer; }
+  details[open] summary { margin-bottom: 0.75rem; }
+</style>
