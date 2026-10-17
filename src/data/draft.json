@@ -1,9 +1,9 @@
 {
-  "title": "Draft Weekend",
+  "title": "Draft Weekend 2027 · Labor Day",
   "tagline": "The whole league under one roof. Draft, reunion, chaos.",
   "draftDateTime": "",
-  "arrive": "",
-  "depart": "",
+  "arrive": "2027-09-03T16:00:00-04:00",
+  "depart": "2027-09-06T11:00:00-04:00",
   "location": "",
   "listingUrl": "https://www.airbnb.com/rooms/1396536165490620688",
   "house": {
@@ -113,19 +113,24 @@
   ],
   "schedule": [
     {
-      "day": "Friday",
+      "day": "Fri, Sep 3",
       "time": "Evening",
       "item": "Arrive, check in, settle rooms"
     },
     {
-      "day": "Saturday",
+      "day": "Sat, Sep 4",
       "time": "TBD",
       "item": "THE DRAFT"
     },
     {
-      "day": "Sunday",
+      "day": "Sun, Sep 5",
+      "time": "All day",
+      "item": "Reunion day"
+    },
+    {
+      "day": "Mon, Sep 6",
       "time": "Morning",
-      "item": "Clean up, check out"
+      "item": "Labor Day: clean up, check out"
     }
   ],
   "bring": [
