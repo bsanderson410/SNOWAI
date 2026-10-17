@@ -4,7 +4,7 @@
 owner: "Henry R"
 nickname: "Longma"
 hometown: ""
-favoriteNflTeam: ""
+favoriteNflTeam: "Browns"
 motto: ""
 rival: ""
 proudestMoment: ""

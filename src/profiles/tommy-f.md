@@ -4,7 +4,7 @@
 owner: "Tommy F"
 nickname: ""
 hometown: ""
-favoriteNflTeam: ""
+favoriteNflTeam: "Browns"
 motto: ""
 rival: ""
 proudestMoment: ""

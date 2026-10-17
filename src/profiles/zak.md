@@ -4,7 +4,7 @@
 owner: "Zak"
 nickname: "Peak"
 hometown: ""
-favoriteNflTeam: ""
+favoriteNflTeam: "Browns"
 motto: ""
 rival: ""
 proudestMoment: ""

@@ -4,7 +4,7 @@
 owner: "Ethan"
 nickname: "Zoomik"
 hometown: ""
-favoriteNflTeam: ""
+favoriteNflTeam: "Browns"
 motto: ""
 rival: ""
 proudestMoment: ""

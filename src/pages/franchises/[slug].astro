@@ -23,6 +23,7 @@ const c = f.career;
   <div class="profile card">
     {f.photo && <img src={f.photo} alt={`${f.owner}'s team logo`} />}
     <div>
+      {f.role && <p class="role">⭐ {f.role}</p>}
       <h1>{f.owner}{f.nickname && <span class="muted"> “{f.nickname}”</span>}</h1>
       <p>{f.current ? <><strong>{f.current.name}</strong> · {f.current.wins}-{f.current.losses} · #{f.rank} in the league</> : 'Not in the league this season'}</p>
       {f.titles.length > 0 && <p>🏆 Champion: {f.titles.join(', ')}</p>}
@@ -84,6 +85,7 @@ const c = f.career;
   .profile img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
   .profile h1 { margin: 0 0 0.25rem; }
   .profile p { margin: 0.15rem 0; }
+  .role { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #b8860b; }
   dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1rem; margin: 0 0 1rem; }
   dt { color: var(--muted); }
   dd { margin: 0; }

@@ -4,7 +4,7 @@
 owner: "Tommy C"
 nickname: ""
 hometown: ""
-favoriteNflTeam: ""
+favoriteNflTeam: "Browns"
 motto: ""
 rival: ""
 proudestMoment: ""

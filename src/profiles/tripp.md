@@ -4,7 +4,7 @@
 owner: "Tripp"
 nickname: ""
 hometown: ""
-favoriteNflTeam: ""
+favoriteNflTeam: "Browns"
 motto: ""
 rival: ""
 proudestMoment: ""

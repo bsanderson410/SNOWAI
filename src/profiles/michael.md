@@ -4,7 +4,7 @@
 owner: "Michael"
 nickname: "Mikis"
 hometown: ""
-favoriteNflTeam: ""
+favoriteNflTeam: "Steelers"
 motto: ""
 rival: ""
 proudestMoment: ""

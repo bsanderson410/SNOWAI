@@ -4,7 +4,7 @@
 owner: "Anthony"
 nickname: "Vanny"
 hometown: ""
-favoriteNflTeam: ""
+favoriteNflTeam: "Browns"
 motto: ""
 rival: ""
 proudestMoment: ""

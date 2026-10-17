@@ -4,7 +4,7 @@
 owner: "Tate"
 nickname: ""
 hometown: ""
-favoriteNflTeam: ""
+favoriteNflTeam: "Browns"
 motto: ""
 rival: ""
 proudestMoment: ""

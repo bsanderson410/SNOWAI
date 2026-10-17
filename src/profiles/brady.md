@@ -4,7 +4,7 @@
 owner: "Brady"
 nickname: "Mr. Brady"
 hometown: ""
-favoriteNflTeam: ""
+favoriteNflTeam: "Browns"
 motto: ""
 rival: ""
 proudestMoment: ""

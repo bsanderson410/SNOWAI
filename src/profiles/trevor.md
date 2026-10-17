@@ -4,7 +4,7 @@
 owner: "Trevor"
 nickname: ""
 hometown: ""
-favoriteNflTeam: ""
+favoriteNflTeam: "Steelers"
 motto: ""
 rival: ""
 proudestMoment: ""

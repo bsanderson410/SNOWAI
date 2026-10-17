@@ -4,7 +4,7 @@
 owner: "Henry B"
 nickname: "Grunkich"
 hometown: ""
-favoriteNflTeam: ""
+favoriteNflTeam: "Browns"
 motto: ""
 rival: ""
 proudestMoment: ""

@@ -10,7 +10,7 @@ const franchises = getFranchises();
   <div class="grid">
     {franchises.map((f) => (
       <a class="card franchise" href={url(`/franchises/${f.slug}`)}>
-        <p class="owner">{f.owner}{f.nickname && <span class="muted"> “{f.nickname}”</span>}</p>
+        <p class="owner">{f.owner}{f.nickname && <span class="muted"> “{f.nickname}”</span>}{f.role && <span class="muted small"> · ⭐ {f.role}</span>}</p>
         <p>{f.current?.name ?? 'No team this season'}</p>
         <p class="muted small">
           {f.current && `${f.current.wins}-${f.current.losses} this season · `}
