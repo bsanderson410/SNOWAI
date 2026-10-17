@@ -1,8 +1,65 @@
 [
-  { "week": 1, "home": "team1", "away": "team2", "homeScore": 112.4, "awayScore": 98.7 },
-  { "week": 1, "home": "team3", "away": "team4", "homeScore": 87.2, "awayScore": 121.9 },
-  { "week": 2, "home": "team1", "away": "team3", "homeScore": 101.0, "awayScore": 104.3 },
-  { "week": 2, "home": "team2", "away": "team4", "homeScore": 130.5, "awayScore": 95.1 },
-  { "week": 3, "home": "team1", "away": "team4" },
-  { "week": 3, "home": "team2", "away": "team3" }
+  {
+    "week": 6,
+    "home": "sabans-funklins",
+    "away": "ohio-against-the-world",
+    "homeProjected": 118.55,
+    "awayProjected": 138.33
+  },
+  {
+    "week": 6,
+    "home": "crogenheim-crusaders",
+    "away": "the-zogma-d-leagues",
+    "homeProjected": 100.49,
+    "awayProjected": 103.82
+  },
+  {
+    "week": 6,
+    "home": "coyotes-cocky-team",
+    "away": "the-burly-lords",
+    "homeProjected": 110.53,
+    "awayProjected": 106.17
+  },
+  {
+    "week": 6,
+    "home": "peak-season",
+    "away": "tferrara",
+    "homeProjected": 95.46,
+    "awayProjected": 106.72
+  },
+  {
+    "week": 6,
+    "home": "4-yards-a-play",
+    "away": "speed-flex-offenders",
+    "homeProjected": 133.66,
+    "awayProjected": 110.56
+  },
+  {
+    "week": 6,
+    "home": "fungiville-fungi",
+    "away": "sailor-goon",
+    "homeProjected": 106.48,
+    "awayProjected": 127.06
+  },
+  {
+    "week": 6,
+    "home": "jonestown-womens-hospital",
+    "away": "jupiters-little-devil",
+    "homeProjected": 94.34,
+    "awayProjected": 105.18
+  },
+  {
+    "week": 6,
+    "home": "martins-deli",
+    "away": "grunkville-goblins",
+    "homeProjected": 124.6,
+    "awayProjected": 116.4
+  },
+  {
+    "week": 6,
+    "home": "tripp-football-team",
+    "away": "trade-federation",
+    "homeProjected": 130.02,
+    "awayProjected": 118.51
+  }
 ]

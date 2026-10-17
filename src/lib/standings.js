@@ -7,17 +7,27 @@ export const isPlayed = (m) => m.homeScore != null && m.awayScore != null;
 
 // Standings are computed from matchups.json — just enter scores each week.
 export function getStandings() {
+  // `baseline` holds a team's record from weeks before game-by-game results were tracked.
+  // Points against isn't known for those weeks, so it's left blank when a baseline exists.
   const rows = Object.fromEntries(
-    teams.map((t) => [t.id, { ...t, wins: 0, losses: 0, ties: 0, pointsFor: 0, pointsAgainst: 0 }])
+    teams.map((t) => {
+      const b = t.baseline ?? {};
+      return [t.id, {
+        ...t,
+        wins: b.wins ?? 0, losses: b.losses ?? 0, ties: b.ties ?? 0,
+        pointsFor: b.pointsFor ?? 0,
+        pointsAgainst: b.pointsAgainst ?? (t.baseline ? null : 0),
+      }];
+    })
   );
 
   for (const m of matchups.filter(isPlayed)) {
     const home = rows[m.home];
     const away = rows[m.away];
     home.pointsFor += m.homeScore;
-    home.pointsAgainst += m.awayScore;
+    if (home.pointsAgainst != null) home.pointsAgainst += m.awayScore;
     away.pointsFor += m.awayScore;
-    away.pointsAgainst += m.homeScore;
+    if (away.pointsAgainst != null) away.pointsAgainst += m.homeScore;
     if (m.homeScore > m.awayScore) { home.wins++; away.losses++; }
     else if (m.homeScore < m.awayScore) { away.wins++; home.losses++; }
     else { home.ties++; away.ties++; }

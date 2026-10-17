@@ -1,9 +1,9 @@
 {
-  "name": "SNOWA Fantasy Football League",
+  "name": "Bay Snowa Fantasy Football",
   "shortName": "SNOWA",
   "season": 2026,
   "commissioner": "Commissioner Name",
-  "platform": "ESPN / Sleeper / Yahoo (edit me)",
+  "platform": "Yahoo",
   "tagline": "Glory, trash talk, and a trophy nobody deserves.",
   "yahoo": {
     "leagueId": "899128",
