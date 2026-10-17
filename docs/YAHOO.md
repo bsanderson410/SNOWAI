@@ -12,7 +12,7 @@ Repo → **Settings → Secrets and variables → Actions → New repository sec
 
 ## 2. Log in to Yahoo (once)
 1. Open:
-   `https://api.login.yahoo.com/oauth2/request_auth?client_id=<CLIENT_ID>&redirect_uri=https%3A%2F%2Flocalhost%3A8080&response_type=code`
+   `https://api.login.yahoo.com/oauth2/request_auth?client_id=<CLIENT_ID>&redirect_uri=https%3A%2F%2Flocalhost%3A8080&response_type=code&scope=fspt-r`
    (`<CLIENT_ID>` = `yahoo.clientId` in `league.json`)
 2. Log in and tap **Agree**. The page then fails to load. That's expected.
 3. Copy the value after `code=` from the address bar.

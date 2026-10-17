@@ -35,7 +35,9 @@ jobs:
       - run: npm ci
 
       # Skipped automatically until Yahoo is connected (see docs/YAHOO.md).
+      # A Yahoo hiccup shouldn't take the site down: keep going and deploy the last good data.
       - name: Sync from Yahoo
+        continue-on-error: true
         run: node scripts/yahoo-sync.mjs
         env:
           YAHOO_CLIENT_SECRET: ${{ secrets.YAHOO_CLIENT_SECRET }}

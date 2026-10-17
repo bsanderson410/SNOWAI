@@ -38,7 +38,6 @@ if (!YAHOO_AUTH_CODE && !savedToken) {
 }
 
 const API = 'https://fantasysports.yahooapis.com/fantasy/v2';
-const leagueKey = `nfl.l.${YAHOO_LEAGUE_ID}`;
 
 async function getAccessToken() {
   const grant = YAHOO_AUTH_CODE
@@ -86,6 +85,17 @@ function parseTeam(team) {
     points: extra.team_points?.total != null ? Number(extra.team_points.total) : null,
   };
 }
+
+// Find the full league key (e.g. "461.l.899128") among the logged-in user's NFL leagues.
+const userGames = await api('/users;use_login=1/games;game_codes=nfl/leagues');
+const myLeagues = list(userGames.users?.['0']?.user?.[1]?.games)
+  .flatMap((g) => list(g.game?.[1]?.leagues))
+  .map((l) => merge(l.league));
+console.log('Leagues on this Yahoo account:', myLeagues.map((l) => `${l.league_key} (${l.name}, ${l.season})`).join(', ') || 'none');
+const leagueKey = myLeagues
+  .filter((l) => l.league_id === String(YAHOO_LEAGUE_ID))
+  .sort((a, b) => Number(b.season) - Number(a.season))[0]?.league_key ?? `nfl.l.${YAHOO_LEAGUE_ID}`;
+console.log(`Using league ${leagueKey}`);
 
 // League metadata + teams
 const leagueRes = await api(`/league/${leagueKey}/teams`);

@@ -9,7 +9,7 @@ if (!clientId || !clientSecret) {
 }
 
 if (!code) {
-  const authUrl = `https://api.login.yahoo.com/oauth2/request_auth?client_id=${encodeURIComponent(clientId)}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code`;
+  const authUrl = `https://api.login.yahoo.com/oauth2/request_auth?client_id=${encodeURIComponent(clientId)}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code&scope=fspt-r`;
   console.log('1. Open this URL, log in to Yahoo, and click Agree:\n\n' + authUrl);
   console.log('\n2. The browser will land on a page that fails to load. That is expected.');
   console.log('   Copy the value after "code=" from the address bar, then run:\n');
