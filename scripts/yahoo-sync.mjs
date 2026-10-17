@@ -53,6 +53,8 @@ async function getAccessToken() {
   });
   const data = await res.json();
   if (!res.ok) throw new Error(`Yahoo token request failed: ${JSON.stringify(data)}`);
+  const { access_token, refresh_token, id_token, ...info } = data;
+  console.log('Yahoo token info:', JSON.stringify(info));
   if (data.refresh_token && data.refresh_token !== savedToken) {
     await mkdir('.yahoo', { recursive: true });
     await writeFile(TOKEN_FILE, encrypt(data.refresh_token) + '\n');
